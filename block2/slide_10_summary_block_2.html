@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block 2 Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 80% 20%, #2a2a4e 0%, #1a1a2e 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 50px;
+            border-left: 4px solid #f72585;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        /* Left Column: Checklist */
+        .checklist-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .checklist-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+
+        .checklist-item.checked {
+            background: rgba(76, 201, 240, 0.1);
+            border-color: #4cc9f0;
+        }
+
+        .checkbox {
+            width: 32px;
+            height: 32px;
+            border: 2px solid #b0b0b0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            transition: all 0.2s;
+        }
+
+        .checklist-item.checked .checkbox {
+            background-color: #4cc9f0;
+            border-color: #4cc9f0;
+            color: #1a1a2e;
+        }
+
+        .item-text strong {
+            display: block;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .item-text span {
+            font-size: 16px;
+            color: #b0b0b0;
+        }
+
+        /* Right Column: Tools & Next */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .tool-icon {
+            font-size: 40px;
+            color: #4cc9f0;
+            margin-bottom: 15px;
+        }
+
+        .tool-name {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .tool-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            border: 1px solid #4cc9f0;
+            color: #4cc9f0;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .tool-link:hover {
+            background: #4cc9f0;
+            color: #1a1a2e;
+        }
+
+        .next-card {
+            background: linear-gradient(135deg, rgba(247, 37, 133, 0.1) 0%, rgba(247, 37, 133, 0.05) 100%);
+            border: 1px solid rgba(247, 37, 133, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .next-label {
+            font-size: 14px;
+            color: #f72585;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .next-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .next-icon {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 100px;
+            color: rgba(247, 37, 133, 0.1);
+            transform: rotate(-15deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 2 / 7</div>
+        
+        <header>
+            <h1>สรุป Block 2: AI Browser Agent</h1>
+            <h2>3 สิ่งที่ได้จาก Block นี้</h2>
+        </header>
+
+        <div class="content-grid">
+            <!-- Left: Checklist -->
+            <div class="checklist-container">
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>แยก Chat vs Agent ได้</strong>
+                        <span>เข้าใจว่า Agent คือผู้ลงมือทำจริง ไม่ใช่แค่ตอบคำถาม</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>Delegate, Don't Dictate</strong>
+                        <span>สั่งที่ผลลัพธ์ (Outcome) ไม่ใช่สั่งทีละขั้นตอน (Step)</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>Autonomy + Accountability</strong>
+                        <span>ยิ่งให้อิสระ AI มาก เท่าไหร่ ยิ่งต้องตรวจสอบผลลัพธ์มากเท่านั้น</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Tools & Next -->
+            <div class="right-col">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fa-solid fa-globe"></i></div>
+                    <div class="tool-name">Perplexity Comet</div>
+                    <div style="color: #b0b0b0; font-size: 14px;">Free AI Browser Agent</div>
+                    <a href="#" class="tool-link">Download at perplexity.ai</a>
+                </div>
+
+                <div class="next-card">
+                    <span class="next-label">Next Block</span>
+                    <div class="next-title">
+                        Creative AI Pipeline <i class="fa-solid fa-arrow-right" style="font-size: 20px; margin-left: auto;"></i>
+                    </div>
+                    <i class="fa-solid fa-palette next-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

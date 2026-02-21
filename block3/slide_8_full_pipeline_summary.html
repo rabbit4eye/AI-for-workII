@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Pipeline Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0f0f1a;
+            background-image: radial-gradient(circle at 50% 100%, #1a1a2e 0%, #0f0f1a 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 60px;
+            border-left: 4px solid #9d4edd;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 28px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+
+        /* Connecting Line */
+        .timeline-line {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+            border-radius: 2px;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 140px;
+            text-align: center;
+        }
+
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #0f0f1a;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .timeline-step:hover .step-circle {
+            transform: scale(1.1);
+        }
+
+        .step-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .step-time {
+            font-size: 18px;
+            color: #b0b0b0;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        /* Specific Colors */
+        .step-1 .step-circle { border-color: #ffd166; color: #ffd166; box-shadow: 0 0 15px rgba(255, 209, 102, 0.2); }
+        .step-2 .step-circle { border-color: #00f5d4; color: #00f5d4; box-shadow: 0 0 15px rgba(0, 245, 212, 0.2); }
+        .step-3 .step-circle { border-color: #4cc9f0; color: #4cc9f0; box-shadow: 0 0 15px rgba(76, 201, 240, 0.2); }
+        .step-4 .step-circle { border-color: #f72585; color: #f72585; box-shadow: 0 0 15px rgba(247, 37, 133, 0.2); }
+        .step-5 .step-circle { border-color: #9d4edd; color: #9d4edd; box-shadow: 0 0 15px rgba(157, 78, 221, 0.2); }
+
+        /* Total Summary */
+        .summary-box {
+            background: linear-gradient(90deg, rgba(157, 78, 221, 0.1) 0%, rgba(247, 37, 133, 0.1) 100%);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 20px;
+            padding: 30px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .total-label {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .total-time {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ffffff, #f72585);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(247, 37, 133, 0.3);
+        }
+
+        .comparison-badge {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-align: right;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comp-label {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-bottom: 5px;
+        }
+
+        .comp-value {
+            font-size: 24px;
+            color: #ff5252;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 3 / 7</div>
+        
+        <header>
+            <h1>Full Pipeline Summary</h1>
+            <h2>จาก Idea ถึง Video ใน 45 นาที (ไม่ใช่ 2 สัปดาห์)</h2>
+        </header>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <!-- Step 1 -->
+            <div class="timeline-step step-1">
+                <div class="step-circle"><i class="fa-regular fa-lightbulb"></i></div>
+                <div class="step-title">Idea</div>
+                <div class="step-time">5 min</div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-step step-2">
+                <div class="step-circle"><i class="fa-regular fa-image"></i></div>
+                <div class="step-title">Image</div>
+                <div class="step-time">10 min</div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-step step-3">
+                <div class="step-circle"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                <div class="step-title">Upscale</div>
+                <div class="step-time">5 min</div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-step step-4">
+                <div class="step-circle"><i class="fa-solid fa-clapperboard"></i></div>
+                <div class="step-title">Video</div>
+                <div class="step-time">10 min</div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="timeline-step step-5">
+                <div class="step-circle"><i class="fa-solid fa-scissors"></i></div>
+                <div class="step-title">Edit</div>
+                <div class="step-time">15 min</div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <div>
+                <div class="total-label">Total Production Time</div>
+                <div class="total-time">~ 45 Minutes</div>
+            </div>
+            <div class="comparison-badge">
+                <div class="comp-label">Traditional Production</div>
+                <div class="comp-value">2 Weeks</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+{
+  "project_info": {
+    "title": "Creative AI Pipeline",
+    "created": 1771346585.1828709,
+    "last_updated": 1771346888.004337,
+    "total_slides": 11
+  },
+  "slides": [
+    {
+      "id": "slide_1_block_title",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_pipeline_thinking",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_tools_overview",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_demo_image_gen",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_image_gen_takeaway",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "slide_6_demo_upscale",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "slide_7_demo_video_gen",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "slide_8_full_pipeline_summary",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "slide_9_use_cases",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "slide_10_principles",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "slide_11_block_3_summary",
+      "state": "edited",
+      "pageNum": 11
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_block_title",
+      "title": "Creative AI Pipeline",
+      "summary": "หน้าเปิด Block 3 แนะนำหัวข้อ Creative AI Pipeline จาก Idea สู่ Video ภายใน 1 ชั่วโมง",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_2_pipeline_thinking",
+      "title": "Pipeline Thinking",
+      "summary": "อธิบาย Concept ของ Pipeline Thinking ที่มองการทำงานเป็น Flow ต่อเนื่องกันหลาย Tool ไม่ใช่ Tool เดียวจบ",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_3_tools_overview",
+      "title": "Tools ที่ใช้ (Free)",
+      "summary": "แนะนำ Tools ที่จะใช้ใน Pipeline นี้ ซึ่งส่วนใหญ่ใช้งานได้ฟรี และเปรียบเทียบค่าใช้จ่ายกับการจ้าง Production",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_4_demo_image_gen",
+      "title": "Live Demo: Image Gen",
+      "summary": "หน้าคั่นสำหรับ Live Demo การสร้างภาพด้วย AI (Google AI Studio) พร้อม Prompt ตัวอย่าง",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_5_image_gen_takeaway",
+      "title": "3 เคล็ดลับ Image Gen",
+      "summary": "สรุป 3 เคล็ดลับสำคัญในการสร้างภาพด้วย AI ให้ได้ผลลัพธ์ที่ดีที่สุด",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_6_demo_upscale",
+      "title": "Pre-recorded Demo: Upscale",
+      "summary": "หน้าคั่นสำหรับ Pre-recorded Demo การขยายภาพให้คมชัดด้วย Upscayl",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_7_demo_video_gen",
+      "title": "Live Demo: Video Gen",
+      "summary": "หน้าคั่นสำหรับ Live Demo การสร้างวิดีโอจากภาพนิ่งด้วย Veo พร้อม Prompt ตัวอย่าง",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_8_full_pipeline_summary",
+      "title": "Full Pipeline Timeline",
+      "summary": "สรุปภาพรวมของ Pipeline ทั้งหมด พร้อมเวลาที่ใช้ในแต่ละขั้นตอน รวมแล้วไม่เกิน 45 นาที",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_9_use_cases",
+      "title": "Use Case ในไทย",
+      "summary": "ยกตัวอย่างการใช้งานจริงในบริบทสังคมไทย 3 กรณีศึกษา (Marketing, SME, L&D)",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_10_principles",
+      "title": "2 Principles สำคัญ",
+      "summary": "สรุป 2 หลักคิดสำคัญจาก Block นี้: Pipeline Thinking และ Good Enough -> Great",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_11_block_3_summary",
+      "title": "สรุป Block 3",
+      "summary": "หน้าสรุปเนื้อหาทั้งหมดของ Block 3 พร้อม Checklist และ Link ไปยัง Tools ต่างๆ",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}

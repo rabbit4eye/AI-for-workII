@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 2: Learn Hack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 50% 40%, #2a2a4e 0%, #1a1a2e 80%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Live Badge */
+        .live-badge {
+            background: rgba(247, 37, 133, 0.2);
+            border: 1px solid #f72585;
+            color: #f72585;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 0 20px rgba(247, 37, 133, 0.4);
+            animation: pulse-red 2s infinite;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #f72585;
+            border-radius: 50%;
+        }
+
+        /* Main Content */
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+            background: linear-gradient(to right, #fff, #b0b0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: #4cc9f0; /* Blue accent for "Learn" */
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* Prompt Box */
+        .prompt-container {
+            width: 800px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(76, 201, 240, 0.3); /* Blue border */
+            border-radius: 16px;
+            padding: 0;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .prompt-header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .prompt-label {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 14px;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .prompt-content {
+            padding: 30px;
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: #4cc9f0;
+            font-weight: 600;
+        }
+
+        .copy-btn {
+            background: rgba(76, 201, 240, 0.1);
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            color: #4cc9f0;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(76, 201, 240, 0.2);
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(247, 37, 133, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(247, 37, 133, 0); }
+        }
+
+        .icon-bg {
+            position: absolute;
+            font-size: 400px;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 2 / 7</div>
+        
+        <i class="fa-solid fa-magnifying-glass-chart icon-bg"></i>
+
+        <div class="live-badge">
+            <div class="live-dot"></div>
+            LIVE DEMO
+        </div>
+
+        <h1>Demo 2: Learn Hack</h1>
+        <h2>ค้นหา + สรุป: แนวโน้ม AI ในองค์กรไทย</h2>
+
+        <div class="prompt-container">
+            <div class="prompt-header">
+                <div class="prompt-label">
+                    <i class="fa-solid fa-terminal"></i> Example Prompt
+                </div>
+                <button class="copy-btn" onclick="copyPrompt()">
+                    <i class="fa-regular fa-copy"></i> Copy
+                </button>
+            </div>
+            <div class="prompt-content" id="promptText">
+                "ช่วยค้นหาข้อมูล <span class="highlight">Trend AI ในธุรกิจไทยปี 2025</span> สรุปเป็น 5 ข้อสำคัญ พร้อมสถิติและแหล่งที่มา"
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyPrompt() {
+            const text = document.getElementById('promptText').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nice-to-Have Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #ffd700;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 40px;
+            border-left: 4px solid #f72585;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: #f72585;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #ffd700;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .tool-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .tool-info p {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.4;
+        }
+
+        .tool-tag {
+            font-size: 14px;
+            color: #f72585;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        /* Bottom Insight */
+        .insight-box {
+            margin-top: 30px;
+            text-align: center;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            color: #e0e0e0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 7 / 7</div>
+        
+        <header>
+            <h1>ไม่ได้สอนวันนี้ — แต่แนะนำลอง</h1>
+            <h2>Explore Further: Advanced AI Tools</h2>
+        </header>
+
+        <div class="grid-container">
+            <!-- Vibe Coding -->
+            <div class="tool-card">
+                <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+                <div class="tool-info">
+                    <span class="tool-tag">Coding</span>
+                    <h3>Vibe Coding</h3>
+                    <p>สร้าง App/Web โดยไม่เขียน Code<br>(Claude Code, Lovable)</p>
+                </div>
+            </div>
+
+            <!-- Desktop Automation -->
+            <div class="tool-card">
+                <div class="icon-box"><i class="fa-solid fa-desktop"></i></div>
+                <div class="tool-info">
+                    <span class="tool-tag">Automation</span>
+                    <h3>Desktop Automation</h3>
+                    <p>ให้ AI ทำงานบน Desktop แทนคุณ<br>(Cowork, Computer Use)</p>
+                </div>
+            </div>
+
+            <!-- NotebookLM -->
+            <div class="tool-card">
+                <div class="icon-box"><i class="fa-solid fa-headphones"></i></div>
+                <div class="tool-info">
+                    <span class="tool-tag">Research</span>
+                    <h3>NotebookLM</h3>
+                    <p>สร้าง Podcast จากเอกสาร<br>ช่วยสรุปและติวสอบ</p>
+                </div>
+            </div>
+
+            <!-- Website Builder -->
+            <div class="tool-card">
+                <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                <div class="tool-info">
+                    <span class="tool-tag">Creation</span>
+                    <h3>Build Your Own Website</h3>
+                    <p>AI ช่วยสร้างเว็บไซต์สวยๆ<br>ในไม่กี่นาที</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <i class="fa-solid fa-lightbulb" style="color: #ffd700; margin-right: 10px;"></i>
+            "ทั้ง 4 เครื่องมือนี้ ใช้ Principle เดียวกับวันนี้ได้ทั้งหมด"
+        </div>
+    </div>
+</body>
+</html>

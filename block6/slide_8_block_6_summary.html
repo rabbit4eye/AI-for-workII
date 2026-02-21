@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block 6 Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #f0f0f0; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #ffffff;
+            color: #202124;
+            font-family: 'Google Sans', 'Sarabun', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #5f6368;
+            background: #f1f3f4;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 50px;
+            border-left: 5px solid #34a853;
+            padding-left: 25px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #202124;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: #5f6368;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        /* Checklist */
+        .checklist-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .checklist-item {
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .checklist-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .check-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e6f4ea;
+            color: #34a853;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .item-text strong {
+            display: block;
+            font-size: 20px;
+            color: #202124;
+            margin-bottom: 4px;
+        }
+
+        .item-text span {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 16px;
+            color: #5f6368;
+        }
+
+        /* Next Block Card */
+        .next-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px dashed #dadce0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .next-label {
+            font-size: 14px;
+            color: #5f6368;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .next-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #202124;
+            margin-bottom: 10px;
+        }
+
+        .next-icon {
+            font-size: 80px;
+            color: #ea4335;
+            margin-bottom: 30px;
+        }
+
+        .decoration-circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(234, 67, 53, 0.05);
+            bottom: -50px;
+            right: -50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 6 / 7</div>
+        
+        <header>
+            <h1>สรุป Block 6: Google Ecosystem</h1>
+            <h2>3 สิ่งที่ต้องจำให้แม่น</h2>
+        </header>
+
+        <div class="content-grid">
+            <!-- Checklist -->
+            <div class="checklist-container">
+                <div class="checklist-item">
+                    <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>AI Embedded in Docs/Sheets</strong>
+                        <span>ใช้ AI ในที่ที่คุณทำงานอยู่แล้ว ไม่ต้องสลับหน้าจอ</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>Connector Reduces Manual Steps</strong>
+                        <span>เชื่อมต่อข้อมูลข้ามแอป ลดงานซ้ำซ้อน</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item">
+                    <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>Privacy Awareness</strong>
+                        <span>ข้อมูลทั่วไปใช้ Cloud ได้ แต่ข้อมูล Sensitive ต้อง Local</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Block -->
+            <div class="next-card">
+                <div class="decoration-circle"></div>
+                <div class="next-label">Next Block</div>
+                <i class="fa-solid fa-flag-checkered next-icon"></i>
+                <div class="next-title">Closing & Q&A</div>
+                <div style="color: #5f6368; font-size: 18px;">+ 9 Principles Summary</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

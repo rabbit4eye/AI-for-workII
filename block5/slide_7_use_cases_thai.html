@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Cases in Thailand</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #00f5d4;
+            opacity: 0.5;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 50px;
+            border-left: 4px solid #00f5d4;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 300;
+            color: #00f5d4;
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .use-case-card {
+            flex: 1;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .use-case-card:hover {
+            border-color: #00f5d4;
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #333;
+        }
+
+        .card-icon {
+            font-size: 32px;
+            color: #00f5d4;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 245, 212, 0.1);
+            border-radius: 4px;
+        }
+
+        .card-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .card-desc {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #333;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            border-radius: 2px;
+            margin-top: 20px;
+        }
+
+        /* Bottom Insight */
+        .insight-box {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .insight-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            color: #00f5d4;
+        }
+
+        .insight-text i {
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 5 / 7</div>
+        
+        <header>
+            <h1>Use Cases จริงในไทย</h1>
+            <h2>Local LLM for Sensitive Industries</h2>
+        </header>
+
+        <div class="cards-container">
+            <!-- Legal -->
+            <div class="use-case-card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="card-title">Legal</div>
+                </div>
+                <div class="card-desc">
+                    วิเคราะห์ Draft สัญญา และเอกสารทางกฎหมาย เพื่อตรวจสอบความถูกต้องและจรรยาบรรณ โดยข้อมูลไม่รั่วไหล
+                </div>
+                <div><span class="tag">CONFIDENTIAL</span></div>
+            </div>
+
+            <!-- Finance -->
+            <div class="use-case-card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="card-title">Finance</div>
+                </div>
+                <div class="card-desc">
+                    วิเคราะห์งบการเงินและตัวเลขสำคัญก่อนประกาศสู่สาธารณะ ป้องกันความเสี่ยงเรื่อง Insider Trading
+                </div>
+                <div><span class="tag">RESTRICTED</span></div>
+            </div>
+
+            <!-- HR -->
+            <div class="use-case-card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="card-title">HR</div>
+                </div>
+                <div class="card-desc">
+                    จัดการข้อมูล Performance และเงินเดือนพนักงานตามกฎหมาย PDPA โดยประมวลผลภายในองค์กรเท่านั้น
+                </div>
+                <div><span class="tag">INTERNAL ONLY</span></div>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <p class="insight-text">
+                <i class="fa-solid fa-terminal"></i>
+                "Privacy ไม่ใช่ Feature — แต่เป็น Design Decision"
+            </p>
+        </div>
+    </div>
+</body>
+</html>

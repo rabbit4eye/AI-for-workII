@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: Install LM Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #00f5d4;
+            opacity: 0.5;
+        }
+
+        /* Badge */
+        .demo-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 189, 46, 0.1);
+            border: 1px solid rgba(255, 189, 46, 0.4);
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 0 20px rgba(255, 189, 46, 0.1);
+        }
+
+        .badge-icon {
+            color: #ffbd2e;
+            font-size: 20px;
+        }
+
+        .badge-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffbd2e;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Main Content */
+        .icon-container {
+            font-size: 80px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #00f5d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: #b0b0b0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        /* System Specs Box */
+        .specs-box {
+            background: #000000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 25px 40px;
+            font-family: 'JetBrains Mono', monospace;
+            width: 800px;
+            position: relative;
+        }
+
+        .specs-title {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #0a0a0a;
+            padding: 0 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .spec-icon {
+            font-size: 24px;
+            color: #00f5d4;
+            width: 30px;
+            text-align: center;
+        }
+
+        .spec-text strong {
+            display: block;
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .spec-text span {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Download Button Visual */
+        .download-visual {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 120px;
+            color: rgba(0, 245, 212, 0.05);
+            transform: rotate(-15deg);
+            z-index: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 5 / 7</div>
+        
+        <div class="demo-badge">
+            <i class="fa-solid fa-film badge-icon"></i>
+            <span class="badge-text">Pre-recorded Demo</span>
+        </div>
+
+        <div class="icon-container">
+            <i class="fa-solid fa-download"></i>
+        </div>
+
+        <h1>ติดตั้ง LM Studio + โหลด Model</h1>
+        <h2>ไม่ต้องเขียน Code — กด Download เสร็จใช้ได้เลย</h2>
+
+        <div class="specs-box">
+            <span class="specs-title">system_requirements.txt</span>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon"><i class="fa-brands fa-apple"></i></div>
+                    <div class="spec-text">
+                        <strong>macOS</strong>
+                        <span>Apple Silicon (M1/M2/M3) Recommended</span>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon"><i class="fa-brands fa-windows"></i></div>
+                    <div class="spec-text">
+                        <strong>Windows</strong>
+                        <span>NVIDIA GPU (RTX 3060+) Recommended</span>
+                    </div>
+                </div>
+            </div>
+            <i class="fa-solid fa-microchip download-visual"></i>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Demo 1 Takeaways</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 50% 0%, #2a2a4e 0%, #1a1a2e 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        header {
+            margin-bottom: 40px;
+            border-left: 4px solid #f72585;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* 3 Cards Layout */
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .takeaway-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .takeaway-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .card-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .card-desc {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.5;
+        }
+
+        /* Specific Card Styles */
+        .card-1 .icon-circle { color: #4cc9f0; border: 2px solid rgba(76, 201, 240, 0.3); }
+        .card-2 .icon-circle { color: #f72585; border: 2px solid rgba(247, 37, 133, 0.3); }
+        .card-3 .icon-circle { color: #ffcc00; border: 2px solid rgba(255, 204, 0, 0.3); }
+        .card-3 .card-title { color: #ffcc00; }
+
+        /* Bottom Section */
+        .bottom-section {
+            display: flex;
+            gap: 30px;
+            margin-top: auto;
+        }
+
+        .reflection-box {
+            flex: 1;
+            background: linear-gradient(90deg, rgba(76, 201, 240, 0.1) 0%, rgba(76, 201, 240, 0) 100%);
+            border-left: 4px solid #4cc9f0;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reflection-text {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .use-case-btn {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .expanded-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            margin-top: 0;
+            opacity: 0;
+        }
+
+        .use-case-btn.active .expanded-content {
+            max-height: 200px;
+            margin-top: 15px;
+            opacity: 1;
+        }
+
+        .use-case-list {
+            list-style: none;
+            margin-left: 30px;
+        }
+
+        .use-case-list li {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .use-case-list li::before {
+            content: "•";
+            color: #f72585;
+            position: absolute;
+            left: -15px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 2 / 7</div>
+        
+        <header>
+            <h1>3 สิ่งที่ต้องจำจาก Demo 1</h1>
+            <h2>Agent ทำเองได้ แต่ต้อง verify เสมอ</h2>
+        </header>
+
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="takeaway-card card-1">
+                <div class="icon-circle"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="card-title">สั่ง Outcome เดียว</div>
+                <div class="card-desc">
+                    ไม่ต้องบอกทีละ Step<br>
+                    Agent วางแผนและทำเอง<br>
+                    (ใช้เวลา 5-7 นาที)
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="takeaway-card card-2">
+                <div class="icon-circle"><i class="fa-solid fa-magnifying-glass-location"></i></div>
+                <div class="card-title">Agent เลือกเว็บเอง</div>
+                <div class="card-desc">
+                    อาจไม่ใช่เว็บที่เราคุ้นเคย<br>
+                    แต่ได้ผลลัพธ์ตามเป้าหมาย<br>
+                    (Surprise Factor)
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="takeaway-card card-3">
+                <div class="icon-circle"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div class="card-title">ต้อง Verify เสมอ</div>
+                <div class="card-desc">
+                    ราคาอาจเปลี่ยน / ข้อมูลเก่า<br>
+                    Agent ไม่ได้สมบูรณ์แบบ<br>
+                    <strong>"Trust but Verify"</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="reflection-box">
+                <i class="fa-regular fa-lightbulb" style="font-size: 32px; color: #ffcc00;"></i>
+                <div class="reflection-text">
+                    ลองนึกว่า: ถ้าให้ Agent ทำแทน 5 task ต่อสัปดาห์<br>
+                    <span style="color: #4cc9f0; font-size: 0.9em;">คุณจะประหยัดเวลาได้กี่ชั่วโมง?</span>
+                </div>
+            </div>
+
+            <div class="use-case-btn" onclick="this.classList.toggle('active')">
+                <div class="btn-label">
+                    <i class="fa-solid fa-circle-question" style="color: #f72585;"></i>
+                    🤔 ฉันจะเอาไปใช้กับ... (คลิกเพื่อดูไอเดีย)
+                </div>
+                <div class="expanded-content">
+                    <ul class="use-case-list">
+                        <li><strong>Corporate:</strong> Market Research, Competitor Analysis</li>
+                        <li><strong>SME:</strong> หา Supplier ราคาดีที่สุด, เช็คเทรนด์สินค้า</li>
+                        <li><strong>Personal:</strong> วางแผนเที่ยว, เปรียบเทียบประกัน, หาร้านอาหาร</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

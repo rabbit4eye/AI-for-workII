@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Tips for Image Gen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0f0f1a;
+            background-image: radial-gradient(circle at 20% 80%, #1a1a2e 0%, #0f0f1a 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px; /* keep top padding (title consistency) */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 40px;
+            border-left: 4px solid #9d4edd;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* 3 Cards Layout */
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex: 1;
+        }
+
+        .tip-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px; /* reduced from 30 to 20 to save vertical space */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .card-desc {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.5;
+        }
+
+        /* Specific Card Styles */
+        .card-1 .icon-box { color: #00f5d4; border-color: rgba(0, 245, 212, 0.3); box-shadow: 0 0 15px rgba(0, 245, 212, 0.1); }
+        .card-2 .icon-box { color: #ffd166; border-color: rgba(255, 209, 102, 0.3); box-shadow: 0 0 15px rgba(255, 209, 102, 0.1); }
+        .card-3 .icon-box { color: #9d4edd; border-color: rgba(157, 78, 221, 0.3); box-shadow: 0 0 15px rgba(157, 78, 221, 0.1); }
+
+        /* Bottom Formula Box */
+        .formula-box {
+            background: linear-gradient(90deg, rgba(157, 78, 221, 0.1) 0%, rgba(0, 245, 212, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 15px 30px; /* reduced vertically from 25 to 15 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-top: auto;
+        }
+
+        .formula-part {
+            text-align: center;
+        }
+
+        .formula-val {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            display: block;
+        }
+
+        .formula-label {
+            font-size: 14px;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .operator {
+            font-size: 30px;
+            color: #b0b0b0;
+            font-weight: 300;
+        }
+
+        .result-text {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #00f5d4;
+            text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 3 / 7</div>
+        
+        <header>
+            <h1>3 เคล็ดลับ Image Generation</h1>
+            <h2>ยิ่ง Prompt ละเอียด ยิ่งได้ตรงใจ</h2>
+        </header>
+
+        <div class="cards-container">
+            <!-- Tip 1 -->
+            <div class="tip-card card-1">
+                <div class="icon-box"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="card-title">Prompt ละเอียด</div>
+                <div class="card-desc">
+                    ระบุ Subject, Style, Lighting, Mood ให้ชัดเจน<br>
+                    "อย่าบอกแค่สิ่งที่เห็น แต่บอกความรู้สึกด้วย"
+                </div>
+            </div>
+
+            <!-- Tip 2 -->
+            <div class="tip-card card-2">
+                <div class="icon-box"><i class="fa-solid fa-rotate"></i></div>
+                <div class="card-title">Generate หลายรอบ</div>
+                <div class="card-desc">
+                    AI คือเครื่องผลิตตัวเลือก (Option Generator)<br>
+                    กด Generate 3-4 ครั้ง แล้วเลือกอันที่ดีที่สุด
+                </div>
+            </div>
+
+            <!-- Tip 3 -->
+            <div class="tip-card card-3">
+                <div class="icon-box"><i class="fa-solid fa-border-all"></i></div>
+                <div class="card-title">ใช้ Grid Prompt</div>
+                <div class="card-desc">
+                    สั่ง "Create a 2x2 grid..."<br>
+                    เพื่อสร้าง 4 ภาพในแผ่นเดียว<br>
+                    ช่วยคุม Style ให้เหมือนกัน (Consistent)
+                </div>
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula-part">
+                <span class="formula-val" style="color: #9d4edd;">AI 80%</span>
+                <span class="formula-label">Drafting</span>
+            </div>
+            <div class="operator">+</div>
+            <div class="formula-part">
+                <span class="formula-val" style="color: #00f5d4;">You 20%</span>
+                <span class="formula-label">Selection &amp; Polish</span>
+            </div>
+            <div class="operator">=</div>
+            <div class="formula-part">
+                <span class="result-text">Good Enough to Great</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

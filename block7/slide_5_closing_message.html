@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closing Message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            overflow: hidden;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #ffd700;
+            opacity: 0.5;
+            letter-spacing: 2px;
+        }
+
+        /* Background Effects */
+        .spotlight {
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Main Quote */
+        .quote-container {
+            text-align: center;
+            z-index: 1;
+            margin-bottom: 60px;
+            max-width: 1000px;
+        }
+
+        .main-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .sub-quote {
+            font-size: 28px;
+            font-weight: 300;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #f72585;
+            font-weight: 700;
+        }
+
+        /* Contact Info */
+        .contact-bar {
+            display: flex;
+            gap: 40px;
+            z-index: 1;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #b0b0b0;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            font-size: 18px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Decorative Elements */
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            color: rgba(255, 215, 0, 0.1);
+            position: absolute;
+            top: -60px;
+            left: -40px;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="spotlight"></div>
+        <div class="progress-indicator">BLOCK 7 / 7</div>
+
+        <div class="quote-container">
+            <div style="position: relative; display: inline-block;">
+                <div class="quote-mark">“</div>
+                <h1 class="main-quote">
+                    AI ไม่ได้มาแทนที่คุณ<br>
+                    แต่คนที่ใช้ AI เป็น<br>
+                    จะแทนที่คนที่ไม่ใช้
+                </h1>
+            </div>
+            
+            <p class="sub-quote">
+                เปิดเครื่อง ลองเลยวันนี้<br>
+                อย่ารอ <span class="highlight">'วันที่พร้อม'</span> เพราะวันนั้นจะไม่มาถึง
+            </p>
+        </div>
+
+        <div class="contact-bar">
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-user"></i></div>
+                <span>Instructor Name</span>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-globe"></i></div>
+                <span>www.ai-for-work.com</span>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-book"></i></div>
+                <span>Download Workbook</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: Gemini in Docs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #f0f0f0; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #ffffff;
+            color: #202124;
+            font-family: 'Google Sans', 'Sarabun', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #5f6368;
+            background: #f1f3f4;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* Live Badge */
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #fce8e6;
+            color: #ea4335;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ea4335;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        /* Icon Container */
+        .icon-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .docs-icon {
+            font-size: 120px;
+            color: #4285f4;
+            background: #e8f0fe;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.2);
+        }
+
+        .gemini-sparkle {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 60px;
+            background: linear-gradient(135deg, #4285f4, #9b51e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: sparkle 2s infinite alternate;
+        }
+
+        /* Text Content */
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #202124;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #5f6368;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #4285f4;
+            font-weight: 700;
+        }
+
+        /* Animations */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(1) rotate(0deg); filter: brightness(100%); }
+            100% { transform: scale(1.2) rotate(15deg); filter: brightness(120%); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 6 / 7</div>
+        
+        <div class="live-badge">
+            <div class="live-dot"></div>
+            LIVE DEMO
+        </div>
+
+        <div class="icon-container">
+            <div class="docs-icon">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+            <div class="gemini-sparkle">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+        </div>
+
+        <h1>Gemini in <span class="highlight">Docs</span></h1>
+        <h2>Draft meeting summary — ไม่ออกจาก Docs</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Principles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0f0f1a;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0f0f1a 80%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px 30px; /* keep top padding for title, reduce bottom */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+            z-index: 10;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 20px; /* reduced to save vertical space */
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 28px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Split Layout */
+        .principles-container {
+            display: flex;
+            gap: 24px; /* slightly reduced */
+            flex: 1;
+            height: 100%;
+        }
+
+        .principle-card {
+            flex: 1;
+            border-radius: 24px;
+            padding: 28px; /* reduced padding */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Card 1: Pipeline Thinking */
+        .card-pipeline {
+            background: linear-gradient(135deg, rgba(0, 245, 212, 0.1) 0%, rgba(0, 245, 212, 0.02) 100%);
+            border-color: rgba(0, 245, 212, 0.3);
+        }
+
+        .card-pipeline .icon-box {
+            color: #00f5d4;
+            background: rgba(0, 245, 212, 0.1);
+            box-shadow: 0 0 30px rgba(0, 245, 212, 0.2);
+        }
+
+        .card-pipeline h3 {
+            color: #00f5d4;
+        }
+
+        /* Card 2: Good Enough -> Great */
+        .card-quality {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(157, 78, 221, 0.02) 100%);
+            border-color: rgba(157, 78, 221, 0.3);
+        }
+
+        .card-quality .icon-box {
+            color: #9d4edd;
+            background: rgba(157, 78, 221, 0.1);
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.2);
+        }
+
+        .card-quality h3 {
+            color: #9d4edd;
+        }
+
+        /* Common Card Elements */
+        .icon-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin-bottom: 20px; /* reduced */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h3 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px; /* reduced spacing */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            max-width: 400px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Background Decoration */
+        .bg-number {
+            position: absolute;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 300px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: 0;
+            bottom: 10px; /* brought up to avoid overflow */
+            right: -20px;
+            line-height: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 3 / 7</div>
+        
+        <header>
+            <h1>2 Principles จาก Block นี้</h1>
+            <h2>Mindset ที่ทำให้คุณทำงานกับ AI ได้จริง</h2>
+        </header>
+
+        <div class="principles-container">
+            <!-- Principle 1 -->
+            <div class="principle-card card-pipeline">
+                <div class="bg-number">1</div>
+                <div class="icon-box"><i class="fa-solid fa-layer-group"></i></div>
+                <h3>Pipeline Thinking</h3>
+                <p>
+                    มองเป็น <span class="highlight">Flow</span> ต่อเนื่อง<br>
+                    ไม่ใช่หา Tool เดียวจบ<br>
+                    (Best Tool for Each Step)
+                </p>
+            </div>
+
+            <!-- Principle 2 -->
+            <div class="principle-card card-quality">
+                <div class="bg-number">2</div>
+                <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Good Enough → Great</h3>
+                <p>
+                    <span class="highlight">AI Draft 80%</span><br>
+                    +<br>
+                    <span class="highlight">You Polish 20%</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

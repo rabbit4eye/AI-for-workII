@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: ChatGPT Connector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #f0f0f0; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #ffffff;
+            color: #202124;
+            font-family: 'Google Sans', 'Sarabun', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #5f6368;
+            background: #f1f3f4;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* Live Badge */
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #fce8e6;
+            color: #ea4335;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ea4335;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        /* Connection Visual */
+        .connection-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .icon-box {
+            width: 140px;
+            height: 140px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 2;
+            background: white;
+        }
+
+        .drive-icon { color: #1fa463; border: 2px solid #e8f0fe; }
+        .gpt-icon { color: #10a37f; border: 2px solid #e6f4ea; }
+
+        .connection-line {
+            height: 4px;
+            width: 150px;
+            background: #dadce0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-packet {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 40px;
+            background: #34a853;
+            animation: flow 1.5s infinite linear;
+        }
+
+        /* Text Content */
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #202124;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #5f6368;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* Privacy Warning */
+        .privacy-warning {
+            background: #fef7e0;
+            border: 1px solid #fbbc04;
+            color: #b06000;
+            padding: 15px 30px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 18px;
+            max-width: 700px;
+        }
+
+        .warning-icon {
+            font-size: 24px;
+            color: #fbbc04;
+        }
+
+        /* Animations */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes flow {
+            0% { left: -40px; }
+            100% { left: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 6 / 7</div>
+        
+        <div class="live-badge">
+            <div class="live-dot"></div>
+            LIVE DEMO
+        </div>
+
+        <div class="connection-container">
+            <div class="icon-box drive-icon">
+                <i class="fa-brands fa-google-drive"></i>
+            </div>
+            
+            <div class="connection-line">
+                <div class="data-packet"></div>
+            </div>
+            
+            <div class="icon-box gpt-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+        </div>
+
+        <h1>ChatGPT Connector</h1>
+        <h2>เชื่อม AI กับ Google Drive ของคุณ</h2>
+
+        <div class="privacy-warning">
+            <i class="fa-solid fa-triangle-exclamation warning-icon"></i>
+            <div>
+                <strong>Privacy Reminder:</strong> 
+                ข้อมูลทั่วไปใช้ Connector ได้สะดวก <br>
+                แต่ถ้าเป็น <strong>ข้อมูล Sensitive</strong> ให้กลับไปใช้ <strong>Local LLM</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

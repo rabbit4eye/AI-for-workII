@@ -1,0 +1,132 @@
+{
+  "project_info": {
+    "title": "AI Browser Agent — จาก Chat สู่ Agent: AI ที่ลงมือทำจริง",
+    "created": 1771346196.1234121,
+    "last_updated": 1771346497.0275037,
+    "total_slides": 10
+  },
+  "slides": [
+    {
+      "id": "slide_1_title",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_chat_vs_agent",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_principle_delegate",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_demo_1_life_hack",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_post_demo_1",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "slide_6_demo_2_learn_hack",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "slide_7_demo_3_research_hack",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "slide_8_principle_autonomy",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "slide_9_use_case_brainstorm",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "slide_10_summary_block_2",
+      "state": "edited",
+      "pageNum": 10
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_title",
+      "title": "AI Browser Agent — จาก Chat สู่ Agent: AI ที่ลงมือทำจริง",
+      "summary": "หน้าเปิดตัว Block 2 แนะนำ AI Browser Agent ที่เป็นหัวข้อหลัก พร้อม subtitle และ learning outcome preview",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_2_chat_vs_agent",
+      "title": "Chat vs Agent — ความต่างที่เปลี่ยนวิธีทำงาน",
+      "summary": "เปรียบเทียบความแตกต่างระหว่าง AI Chat และ AI Agent ในรูปแบบตาราง 2 คอลัมน์ พร้อม interactive toggle",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_3_principle_delegate",
+      "title": "Delegate, Don't Dictate — มอบหมาย ไม่ใช่สั่งทีละขั้น",
+      "summary": "อธิบาย Principle หลักของการใช้ Agent คือการมอบหมายผลลัพธ์ (Outcome) ไม่ใช่สั่งขั้นตอน (Steps) พร้อมตัวอย่าง prompt เปรียบเทียบ",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_4_demo_1_life_hack",
+      "title": "🔴 LIVE DEMO — Demo 1: Life Hack เปรียบเทียบเที่ยวบิน",
+      "summary": "หน้า Transition เข้าสู่ Live Demo ที่ 1 การเปรียบเทียบเที่ยวบิน พร้อมตัวอย่าง prompt ให้ผู้เรียน copy ได้",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_5_post_demo_1",
+      "title": "3 สิ่งที่ต้องจำจาก Demo 1 — Agent ทำเองได้ แต่ต้อง verify เสมอ",
+      "summary": "สรุป 3 ประเด็นสำคัญจาก Demo 1 และกระตุ้นให้ผู้เรียนคิดถึง use case ของตัวเอง พร้อม interactive cards",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_6_demo_2_learn_hack",
+      "title": "🔴 LIVE DEMO — Demo 2: Learn Hack ค้นหา + สรุปแนวโน้ม AI",
+      "summary": "หน้า Transition เข้าสู่ Live Demo ที่ 2 การค้นหาและสรุปข้อมูล Research พร้อมตัวอย่าง prompt",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_7_demo_3_research_hack",
+      "title": "🎬 PRE-RECORDED DEMO — Demo 3: Research Hack",
+      "summary": "หน้า Transition เข้าสู่ Pre-recorded Demo ที่ 3 การทำ Comparison Report พร้อมหมายเหตุเรื่องเวลา",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_8_principle_autonomy",
+      "title": "Agent = Autonomy + Accountability — ยิ่ง AI อิสระ ยิ่งต้องตรวจ",
+      "summary": "อธิบายความสัมพันธ์ระหว่างความเป็นอิสระของ AI กับความรับผิดชอบในการตรวจสอบของมนุษย์ พร้อม interactive slider",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_9_use_case_brainstorm",
+      "title": "คุณจะเอา AI Browser ไปใช้กับงานอะไร?",
+      "summary": "กิจกรรมให้ผู้เรียนคิด Use Case ของตัวเองจาก 4 มิติที่เป็นไปได้ พร้อมช่องให้พิมพ์คำตอบเก็บไว้",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_10_summary_block_2",
+      "title": "สรุป Block 2: AI Browser Agent",
+      "summary": "หน้าสรุปเนื้อหาทั้งหมดของ Block 2 พร้อม checklist สิ่งที่ได้เรียนรู้ และ link สำหรับ download tool",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}

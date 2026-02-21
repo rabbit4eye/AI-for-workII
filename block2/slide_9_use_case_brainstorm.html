@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Case Brainstorm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 50% 50%, #2a2a4e 0%, #1a1a2e 80%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ffffff, #4cc9f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Grid Layout */
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            flex: 1;
+            margin-bottom: 10px; /* reduced from 30px to save vertical space */
+        }
+
+        .grid-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .card-content h3 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .card-content ul {
+            list-style: none;
+        }
+
+        .card-content li {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .card-content li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Specific Card Styles */
+        .card-self .card-icon { background: rgba(76, 201, 240, 0.1); color: #4cc9f0; border: 1px solid rgba(76, 201, 240, 0.3); }
+        .card-task .card-icon { background: rgba(255, 204, 0, 0.1); color: #ffcc00; border: 1px solid rgba(255, 204, 0, 0.3); }
+        .card-learn .card-icon { background: rgba(247, 37, 133, 0.1); color: #f72585; border: 1px solid rgba(247, 37, 133, 0.3); }
+        .card-augment .card-icon { background: rgba(157, 78, 221, 0.1); color: #9d4edd; border: 1px solid rgba(157, 78, 221, 0.3); }
+
+        /* Input Area */
+        .input-area {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 16px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .input-label {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .input-field {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 18px;
+            outline: none;
+        }
+
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .save-btn {
+            background: #f72585;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .save-btn:hover {
+            background: #d01e6b;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 2 / 7</div>
+        
+        <header>
+            <h1>คุณจะเอา AI Browser ไปใช้กับงานอะไร?</h1>
+            <h2>ลองดู 4 มิตินี้เป็นไอเดีย แล้วพิมพ์เป้าหมายของคุณไว้</h2>
+        </header>
+
+        <div class="inspiration-grid">
+            <!-- Self Interest -->
+            <div class="grid-card card-self">
+                <div class="card-icon"><i class="fa-solid fa-house-user"></i></div>
+                <div class="card-content">
+                    <h3>Self Interest (เรื่องส่วนตัว)</h3>
+                    <ul>
+                        <li>หาตั๋วเครื่องบินราคาดีที่สุด</li>
+                        <li>เปรียบเทียบแผนประกันสุขภาพ</li>
+                        <li>หาร้านอาหารสำหรับโอกาสพิเศษ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Efficient Task -->
+            <div class="grid-card card-task">
+                <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="card-content">
+                    <h3>Efficient Task (งานเร็ว)</h3>
+                    <ul>
+                        <li>Competitive Analysis คู่แข่ง 3 ราย</li>
+                        <li>Vendor Comparison หา Supplier</li>
+                        <li>Market Research หาเทรนด์สินค้า</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Learning -->
+            <div class="grid-card card-learn">
+                <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+                <div class="card-content">
+                    <h3>Learning (การเรียนรู้)</h3>
+                    <ul>
+                        <li>สรุป Paper งานวิจัยยาวๆ</li>
+                        <li>หา Case Study ที่เกี่ยวข้อง</li>
+                        <li>อธิบายศัพท์เทคนิคยากๆ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Augmented Intelligence -->
+            <div class="grid-card card-augment">
+                <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                <div class="card-content">
+                    <h3>Augmented Intelligence (ช่วยคิด)</h3>
+                    <ul>
+                        <li>รวบรวม Data เพื่อตัดสินใจลงทุน</li>
+                        <li>หาไอเดีย Brainstorm แคมเปญใหม่</li>
+                        <li>ตรวจสอบความถูกต้องของข้อมูล</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-label">My Use Case:</div>
+            <input type="text" class="input-field" id="useCaseInput" placeholder="พิมพ์งานที่คุณอยากให้ AI ช่วยทำ...">
+            <button class="save-btn" onclick="saveUseCase()">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function saveUseCase() {
+            const input = document.getElementById('useCaseInput');
+            const value = input.value;
+            if (value) {
+                localStorage.setItem('ai_browser_use_case', value);
+                const btn = document.querySelector('.save-btn');
+                btn.textContent = 'Saved!';
+                btn.style.backgroundColor = '#4cc9f0';
+                setTimeout(() => {
+                    btn.textContent = 'Save';
+                    btn.style.backgroundColor = '#f72585';
+                }, 2000);
+            }
+        }
+
+        // Load saved use case if exists
+        const saved = localStorage.getItem('ai_browser_use_case');
+        if (saved) {
+            document.getElementById('useCaseInput').value = saved;
+        }
+    </script>
+</body>
+</html>

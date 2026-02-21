@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Thinking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0f0f1a;
+            background-image: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #0f0f1a 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 60px;
+            border-left: 4px solid #00f5d4;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 28px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Pipeline Flow Diagram */
+        .pipeline-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        /* Connecting Line Background */
+        .pipeline-line {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            width: 180px;
+            height: 220px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .step-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .step-tool {
+            font-size: 14px;
+            color: #b0b0b0;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 10px;
+        }
+
+        /* Specific Step Styles */
+        .step-idea .step-icon { color: #ffd166; border-color: rgba(255, 209, 102, 0.3); }
+        .step-image .step-icon { color: #00f5d4; border-color: rgba(0, 245, 212, 0.3); }
+        .step-upscale .step-icon { color: #4cc9f0; border-color: rgba(76, 201, 240, 0.3); }
+        .step-video .step-icon { color: #f72585; border-color: rgba(247, 37, 133, 0.3); }
+        .step-edit .step-icon { color: #9d4edd; border-color: rgba(157, 78, 221, 0.3); }
+
+        /* Arrows between steps */
+        .arrow {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 20px;
+            z-index: 1;
+        }
+
+        /* Insight Box */
+        .insight-box {
+            background: linear-gradient(90deg, rgba(0, 245, 212, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .insight-icon {
+            font-size: 40px;
+            color: #00f5d4;
+        }
+
+        .insight-text h3 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .insight-text p {
+            font-size: 18px;
+            color: #b0b0b0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 3 / 7</div>
+        
+        <header>
+            <h1>Pipeline Thinking</h1>
+            <h2>มองเป็น Flow ต่อเนื่อง ไม่ใช่ Tool เดียวจบ</h2>
+        </header>
+
+        <div class="pipeline-wrapper">
+            <div class="pipeline-line"></div>
+
+            <!-- Step 1 -->
+            <div class="step-card step-idea">
+                <div class="step-icon"><i class="fa-regular fa-lightbulb"></i></div>
+                <div class="step-title">Idea</div>
+                <div class="step-tool">Human</div>
+            </div>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+            <!-- Step 2 -->
+            <div class="step-card step-image">
+                <div class="step-icon"><i class="fa-regular fa-image"></i></div>
+                <div class="step-title">Image Gen</div>
+                <div class="step-tool">AI Studio</div>
+            </div>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+            <!-- Step 3 -->
+            <div class="step-card step-upscale">
+                <div class="step-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                <div class="step-title">Upscale</div>
+                <div class="step-tool">Upscayl</div>
+            </div>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+            <!-- Step 4 -->
+            <div class="step-card step-video">
+                <div class="step-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                <div class="step-title">Video Gen</div>
+                <div class="step-tool">Veo</div>
+            </div>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+            <!-- Step 5 -->
+            <div class="step-card step-edit">
+                <div class="step-icon"><i class="fa-solid fa-scissors"></i></div>
+                <div class="step-title">Edit</div>
+                <div class="step-tool">CapCut</div>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <div class="insight-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="insight-text">
+                <h3>Best Tool for the Job</h3>
+                <p>แต่ละขั้นใช้เครื่องมือที่ดีที่สุดในหน้าที่นั้นๆ เพื่อผลลัพธ์คุณภาพสูงสุด (ดีกว่าใช้ All-in-one ตัวเดียว)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

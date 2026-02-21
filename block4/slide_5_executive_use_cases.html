@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Use Cases</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 50% 0%, #16213e 0%, #1a1a2e 80%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 40px;
+            border-left: 4px solid #ff6b35;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .use-case-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .time-badge {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+        }
+
+        .card-icon {
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .card-desc {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        /* Prompt Box */
+        .prompt-box {
+            margin-top: auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .prompt-label {
+            font-size: 12px;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .prompt-text {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 18px;
+            color: #ffffff;
+            font-style: italic;
+        }
+
+        /* Specific Styles */
+        /* Morning */
+        .card-morning .card-icon { color: #ffd166; background: rgba(255, 209, 102, 0.1); box-shadow: 0 0 20px rgba(255, 209, 102, 0.1); }
+        .card-morning .prompt-box { border-color: #ffd166; }
+        .card-morning .prompt-label { color: #ffd166; }
+
+        /* Afternoon */
+        .card-afternoon .card-icon { color: #4cc9f0; background: rgba(76, 201, 240, 0.1); box-shadow: 0 0 20px rgba(76, 201, 240, 0.1); }
+        .card-afternoon .prompt-box { border-color: #4cc9f0; }
+        .card-afternoon .prompt-label { color: #4cc9f0; }
+
+        /* Night */
+        .card-night .card-icon { color: #9d4edd; background: rgba(157, 78, 221, 0.1); box-shadow: 0 0 20px rgba(157, 78, 221, 0.1); }
+        .card-night .prompt-box { border-color: #9d4edd; }
+        .card-night .prompt-label { color: #9d4edd; }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 4 / 7</div>
+        
+        <header>
+            <h1>ใช้จริงยังไง? (สำหรับผู้บริหาร)</h1>
+            <h2>3 สถานการณ์ที่ Voice AI ช่วยได้ทันที</h2>
+        </header>
+
+        <div class="cards-container">
+            <!-- Morning -->
+            <div class="use-case-card card-morning">
+                <div class="card-header">
+                    <span class="time-badge">08:00 AM</span>
+                </div>
+                <div class="card-icon"><i class="fa-regular fa-sun"></i></div>
+                <div class="card-title">Commute to Work</div>
+                <div class="card-desc">
+                    ขับรถไปทำงาน มือไม่ว่างแต่อยากรู้ความเคลื่อนไหวของตลาด
+                </div>
+                <div class="prompt-box">
+                    <span class="prompt-label">Voice Prompt</span>
+                    <div class="prompt-text">"สรุปข่าวอุตสาหกรรมยานยนต์ 5 ข้อสำคัญของเช้านี้ให้ฟังหน่อย"</div>
+                </div>
+            </div>
+
+            <!-- Afternoon -->
+            <div class="use-case-card card-afternoon">
+                <div class="card-header">
+                    <span class="time-badge">01:45 PM</span>
+                </div>
+                <div class="card-icon"><i class="fa-regular fa-handshake"></i></div>
+                <div class="card-title">Pre-meeting Brief</div>
+                <div class="card-desc">
+                    มีเวลา 15 นาทีก่อนเข้าพบลูกค้า ต้องการข้อมูลด่วน
+                </div>
+                <div class="prompt-box">
+                    <span class="prompt-label">Voice Prompt</span>
+                    <div class="prompt-text">"Brief ข้อมูลบริษัท XYZ ที่จะเข้าพบ จุดแข็งจุดอ่อนคืออะไร?"</div>
+                </div>
+            </div>
+
+            <!-- Night -->
+            <div class="use-case-card card-night">
+                <div class="card-header">
+                    <span class="time-badge">10:00 PM</span>
+                </div>
+                <div class="card-icon"><i class="fa-regular fa-moon"></i></div>
+                <div class="card-title">Daily Reflection</div>
+                <div class="card-desc">
+                    ทบทวนตัวเองก่อนนอน เพื่อเตรียมพร้อมสำหรับวันพรุ่งนี้
+                </div>
+                <div class="prompt-box">
+                    <span class="prompt-label">Voice Prompt</span>
+                    <div class="prompt-text">"วันนี้ผมตัดสินใจเรื่อง A ไป ถ้าย้อนเวลาได้ มีทางเลือกอื่นที่ดีกว่าไหม?"</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

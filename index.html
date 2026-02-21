@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for Work II — Full Course Slides</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-panel: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: #8b9bb4;
+            --accent-cyan: #4cc9f0;
+            --accent-pink: #f72585;
+            --accent-gold: #ffd700;
+            --accent-green: #00ff9d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Sarabun', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 320px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-320px);
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.3);
+        }
+
+        .sidebar-header h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-header p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .slide-counter {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
+            color: var(--accent-cyan);
+            margin-top: 8px;
+        }
+
+        /* Slide List */
+        .slide-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+
+        .slide-list::-webkit-scrollbar { width: 4px; }
+        .slide-list::-webkit-scrollbar-track { background: transparent; }
+        .slide-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+
+        .block-group {
+            margin-bottom: 5px;
+        }
+
+        .block-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+            user-select: none;
+        }
+
+        .block-header:hover { color: var(--text-primary); }
+        .block-header.active { color: var(--accent-cyan); }
+
+        .block-header .block-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .block-header .chevron {
+            margin-left: auto;
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+
+        .block-header.expanded .chevron { transform: rotate(90deg); }
+
+        .block-slides {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .block-slides.show { display: block; }
+
+        .slide-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+
+        .slide-item:hover {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
+        }
+
+        .slide-item.active {
+            color: var(--accent-cyan);
+            background: rgba(76, 201, 240, 0.1);
+            border-left-color: var(--accent-cyan);
+        }
+
+        .slide-num {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            flex-shrink: 0;
+        }
+
+        .slide-item.active .slide-num {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            margin-left: 320px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.expanded { margin-left: 0; }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+            height: 50px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .toggle-sidebar {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .toggle-sidebar:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--accent-cyan);
+        }
+
+        .current-info {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 18px;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        .current-info .block-name { color: var(--accent-cyan); font-weight: 700; }
+        .current-info .slide-name { color: var(--text-primary); }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-primary);
+            width: 40px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--accent-cyan);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-progress-text {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 18px;
+            color: var(--text-secondary);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .fullscreen-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s;
+            margin-left: 10px;
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Progress Bar */
+        .progress-bar-container {
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+            transition: width 0.3s ease;
+        }
+
+        /* Slide Viewer */
+        .slide-viewer {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a14;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide-viewer iframe {
+            border: none;
+            background: #000;
+            box-shadow: 0 0 60px rgba(0,0,0,0.8);
+        }
+
+        /* Block Colors */
+        .block-color-1 { background: var(--accent-cyan); }
+        .block-color-2 { background: #4cc9f0; }
+        .block-color-3 { background: #a855f7; }
+        .block-color-4 { background: var(--accent-gold); }
+        .block-color-5 { background: var(--accent-green); }
+        .block-color-6 { background: #4285f4; }
+        .block-color-7 { background: var(--accent-pink); }
+
+        /* Keyboard Shortcuts Hint */
+        .shortcuts-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            z-index: 50;
+            display: flex;
+            gap: 15px;
+        }
+
+        .shortcut-key {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 13px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1>AI for Work II</h1>
+            <p>ต่อยอดการทำงานด้วย AI</p>
+            <div class="slide-counter" id="slideCounter">Slide 1 / 55</div>
+        </div>
+        <div class="slide-list" id="slideList">
+            <!-- Dynamically generated -->
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content" id="mainContent">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <button class="toggle-sidebar" id="toggleSidebar" title="Toggle Sidebar (S)">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="current-info" id="currentInfo">
+                    <span class="block-name">BLOCK 1</span> — <span class="slide-name">Title Card</span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <button class="nav-btn" id="prevBtn" title="Previous (←)"><i class="fa-solid fa-chevron-left"></i></button>
+                <span class="slide-progress-text" id="progressText">1 / 55</span>
+                <button class="nav-btn" id="nextBtn" title="Next (→)"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen (F)"><i class="fa-solid fa-expand"></i></button>
+            </div>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+
+        <div class="slide-viewer" id="slideViewer">
+            <iframe id="slideFrame" width="1280" height="720"></iframe>
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts -->
+    <div class="shortcuts-hint" id="shortcutsHint">
+        <span><span class="shortcut-key">←</span> <span class="shortcut-key">→</span> Navigate</span>
+        <span><span class="shortcut-key">S</span> Sidebar</span>
+        <span><span class="shortcut-key">F</span> Fullscreen</span>
+    </div>
+
+    <script>
+        // ===== SLIDE DATA =====
+        const slideData = [
+            // Block 1 — Opening & Bridge
+            { block: 1, blockName: "Opening & Bridge", title: "Title Card", file: "block1/slide_1_title_card.html" },
+            { block: 1, blockName: "Opening & Bridge", title: "กติกาวันนี้", file: "block1/slide_2_rules.html" },
+            { block: 1, blockName: "Opening & Bridge", title: "Stack, Don't Replace", file: "block1/slide_3_principle_stack.html" },
+            { block: 1, blockName: "Opening & Bridge", title: "Stack ในชีวิตจริง", file: "block1/slide_4_real_world_stack.html" },
+            { block: 1, blockName: "Opening & Bridge", title: "6 Skill Sets Preview", file: "block1/slide_5_preview_skills.html" },
+            { block: 1, blockName: "Opening & Bridge", title: "Transition → Block 2", file: "block1/slide_6_transition_block2.html" },
+
+            // Block 2 — AI Browser Agent
+            { block: 2, blockName: "AI Browser Agent", title: "Block Title", file: "block2/slide_1_title.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Chat vs Agent", file: "block2/slide_2_chat_vs_agent.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Delegate, Don't Dictate", file: "block2/slide_3_principle_delegate.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Demo 1: Life Hack", file: "block2/slide_4_demo_1_life_hack.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Post Demo 1", file: "block2/slide_5_post_demo_1.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Demo 2: Learn Hack", file: "block2/slide_6_demo_2_learn_hack.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Demo 3: Research Hack", file: "block2/slide_7_demo_3_research_hack.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Autonomy + Accountability", file: "block2/slide_8_principle_autonomy.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Use Case Brainstorm", file: "block2/slide_9_use_case_brainstorm.html" },
+            { block: 2, blockName: "AI Browser Agent", title: "Block 2 Summary", file: "block2/slide_10_summary_block_2.html" },
+
+            // Block 3 — Creative AI Pipeline
+            { block: 3, blockName: "Creative AI Pipeline", title: "Block Title", file: "block3/slide_1_block_title.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Pipeline Thinking", file: "block3/slide_2_pipeline_thinking.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Tools Overview", file: "block3/slide_3_tools_overview.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Demo: Image Gen", file: "block3/slide_4_demo_image_gen.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Image Gen Takeaway", file: "block3/slide_5_image_gen_takeaway.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Demo: Upscale", file: "block3/slide_6_demo_upscale.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Demo: Video Gen", file: "block3/slide_7_demo_video_gen.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Full Pipeline Summary", file: "block3/slide_8_full_pipeline_summary.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Use Cases", file: "block3/slide_9_use_cases.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Principles", file: "block3/slide_10_principles.html" },
+            { block: 3, blockName: "Creative AI Pipeline", title: "Block 3 Summary", file: "block3/slide_11_block_3_summary.html" },
+
+            // Block 4 — Voice Mode
+            { block: 4, blockName: "Voice Mode", title: "Block Title", file: "block4/slide_1_block_title.html" },
+            { block: 4, blockName: "Voice Mode", title: "Voice vs Text", file: "block4/slide_2_voice_vs_text.html" },
+            { block: 4, blockName: "Voice Mode", title: "Demo: Voice", file: "block4/slide_3_demo_voice.html" },
+            { block: 4, blockName: "Voice Mode", title: "Free Voice Options", file: "block4/slide_4_free_voice_options.html" },
+            { block: 4, blockName: "Voice Mode", title: "Executive Use Cases", file: "block4/slide_5_executive_use_cases.html" },
+            { block: 4, blockName: "Voice Mode", title: "Block 4 Summary", file: "block4/slide_6_block_4_summary.html" },
+
+            // Block 5 — Local LLM
+            { block: 5, blockName: "Local LLM", title: "Block Title", file: "block5/slide_1_block_title.html" },
+            { block: 5, blockName: "Local LLM", title: "Hook: Privacy", file: "block5/slide_2_hook_privacy.html" },
+            { block: 5, blockName: "Local LLM", title: "Privacy by Design", file: "block5/slide_3_principle_privacy.html" },
+            { block: 5, blockName: "Local LLM", title: "Demo: Install LM Studio", file: "block5/slide_4_demo_install_lm_studio.html" },
+            { block: 5, blockName: "Local LLM", title: "Demo: Anonymize", file: "block5/slide_5_demo_anonymize.html" },
+            { block: 5, blockName: "Local LLM", title: "Model Recommendations", file: "block5/slide_6_model_recommendations.html" },
+            { block: 5, blockName: "Local LLM", title: "Use Cases (Thai)", file: "block5/slide_7_use_cases_thai.html" },
+            { block: 5, blockName: "Local LLM", title: "Block 5 Summary", file: "block5/slide_8_block_5_summary.html" },
+
+            // Block 6 — Google Ecosystem
+            { block: 6, blockName: "Google Ecosystem", title: "Block Title", file: "block6/slide_1_block_title.html" },
+            { block: 6, blockName: "Google Ecosystem", title: "AI in Your Workflow", file: "block6/slide_2_principle_workflow.html" },
+            { block: 6, blockName: "Google Ecosystem", title: "Demo: Gemini in Docs", file: "block6/slide_3_demo_gemini_docs.html" },
+            { block: 6, blockName: "Google Ecosystem", title: "Demo: AI in Sheets", file: "block6/slide_4_demo_ai_sheets.html" },
+            { block: 6, blockName: "Google Ecosystem", title: "Demo: Connector", file: "block6/slide_5_demo_connector.html" },
+            { block: 6, blockName: "Google Ecosystem", title: "Workflow Summary", file: "block6/slide_6_workflow_summary.html" },
+            { block: 6, blockName: "Google Ecosystem", title: "Before vs After", file: "block6/slide_7_use_cases_before_after.html" },
+            { block: 6, blockName: "Google Ecosystem", title: "Block 6 Summary", file: "block6/slide_8_block_6_summary.html" },
+
+            // Block 7 — Closing & Q&A
+            { block: 7, blockName: "Closing & Q&A", title: "Block Title", file: "block7/slide_1_block_title.html" },
+            { block: 7, blockName: "Closing & Q&A", title: "9 Principles Summary", file: "block7/slide_2_principles_summary.html" },
+            { block: 7, blockName: "Closing & Q&A", title: "Nice-to-Have Tools", file: "block7/slide_3_nice_to_have.html" },
+            { block: 7, blockName: "Closing & Q&A", title: "Q&A", file: "block7/slide_4_qa.html" },
+            { block: 7, blockName: "Closing & Q&A", title: "Closing Message", file: "block7/slide_5_closing_message.html" },
+        ];
+
+        const totalSlides = slideData.length;
+        let currentSlide = 0;
+        let sidebarOpen = true;
+
+        // ===== BUILD SIDEBAR =====
+        function buildSidebar() {
+            const slideList = document.getElementById('slideList');
+            let html = '';
+            let currentBlock = 0;
+
+            slideData.forEach((slide, index) => {
+                if (slide.block !== currentBlock) {
+                    if (currentBlock !== 0) html += '</div></div>';
+                    currentBlock = slide.block;
+                    html += `
+                        <div class="block-group">
+                            <div class="block-header expanded" data-block="${slide.block}" onclick="toggleBlock(this)">
+                                <span class="block-dot block-color-${slide.block}"></span>
+                                Block ${slide.block}: ${slide.blockName}
+                                <i class="fa-solid fa-chevron-right chevron"></i>
+                            </div>
+                            <div class="block-slides show">
+                    `;
+                }
+                html += `
+                    <div class="slide-item ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="goToSlide(${index})">
+                        <span class="slide-num">${index + 1}</span>
+                        <span>${slide.title}</span>
+                    </div>
+                `;
+            });
+            html += '</div></div>';
+            slideList.innerHTML = html;
+        }
+
+        function toggleBlock(el) {
+            const slides = el.nextElementSibling;
+            el.classList.toggle('expanded');
+            slides.classList.toggle('show');
+        }
+
+        // ===== NAVIGATION =====
+        function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+            currentSlide = index;
+            updateView();
+        }
+
+        function updateView() {
+            const slide = slideData[currentSlide];
+            const iframe = document.getElementById('slideFrame');
+            iframe.src = slide.file;
+
+            // Update progress
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('slideCounter').textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+
+            // Update current info
+            document.getElementById('currentInfo').innerHTML = `
+                <span class="block-name">BLOCK ${slide.block}</span> — <span class="slide-name">${slide.title}</span>
+            `;
+
+            // Update nav buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+
+            // Update active slide in sidebar
+            document.querySelectorAll('.slide-item').forEach(item => item.classList.remove('active'));
+            const activeItem = document.querySelector(`.slide-item[data-index="${currentSlide}"]`);
+            if (activeItem) {
+                activeItem.classList.add('active');
+                activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // Update active block header
+            document.querySelectorAll('.block-header').forEach(h => h.classList.remove('active'));
+            const activeBlock = document.querySelector(`.block-header[data-block="${slide.block}"]`);
+            if (activeBlock) activeBlock.classList.add('active');
+        }
+
+        // ===== SIDEBAR TOGGLE =====
+        function toggleSidebar() {
+            sidebarOpen = !sidebarOpen;
+            document.getElementById('sidebar').classList.toggle('collapsed');
+            document.getElementById('mainContent').classList.toggle('expanded');
+            resizeIframe();
+        }
+
+        // ===== FULLSCREEN =====
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // ===== RESIZE IFRAME =====
+        function resizeIframe() {
+            const viewer = document.getElementById('slideViewer');
+            const iframe = document.getElementById('slideFrame');
+            const viewerWidth = viewer.clientWidth;
+            const viewerHeight = viewer.clientHeight;
+
+            const slideWidth = 1280;
+            const slideHeight = 720;
+            const scaleX = viewerWidth / slideWidth;
+            const scaleY = viewerHeight / slideHeight;
+            const scale = Math.min(scaleX, scaleY, 1.2); // Cap at 1.2x
+
+            iframe.style.width = slideWidth + 'px';
+            iframe.style.height = slideHeight + 'px';
+            iframe.style.transform = `scale(${scale})`;
+            iframe.style.transformOrigin = 'center center';
+        }
+
+        // ===== EVENT LISTENERS =====
+        document.getElementById('prevBtn').addEventListener('click', () => goToSlide(currentSlide - 1));
+        document.getElementById('nextBtn').addEventListener('click', () => goToSlide(currentSlide + 1));
+        document.getElementById('toggleSidebar').addEventListener('click', toggleSidebar);
+        document.getElementById('fullscreenBtn').addEventListener('click', toggleFullscreen);
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            // Don't capture if user is typing in an input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    goToSlide(currentSlide - 1);
+                    break;
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    goToSlide(currentSlide + 1);
+                    break;
+                case 's':
+                case 'S':
+                    toggleSidebar();
+                    break;
+                case 'f':
+                case 'F':
+                    toggleFullscreen();
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    goToSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    goToSlide(totalSlides - 1);
+                    break;
+            }
+        });
+
+        // Resize handler
+        window.addEventListener('resize', resizeIframe);
+
+        // Hide shortcuts hint after 5 seconds
+        setTimeout(() => {
+            document.getElementById('shortcutsHint').style.opacity = '0';
+            document.getElementById('shortcutsHint').style.transition = 'opacity 1s';
+            setTimeout(() => {
+                document.getElementById('shortcutsHint').style.display = 'none';
+            }, 1000);
+        }, 8000);
+
+        // ===== INIT =====
+        buildSidebar();
+        goToSlide(0);
+        setTimeout(resizeIframe, 100);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Recommendations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #00f5d4;
+            opacity: 0.5;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 40px;
+            border-left: 4px solid #00f5d4;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 300;
+            color: #00f5d4;
+        }
+
+        /* Table Container */
+        .table-container {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        th {
+            background: rgba(0, 245, 212, 0.1);
+            color: #00f5d4;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            text-align: left;
+            padding: 20px;
+            font-size: 20px;
+            border-bottom: 2px solid rgba(0, 245, 212, 0.3);
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 20px;
+            color: #e0e0e0;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: rgba(255, 255, 255, 0.05); }
+
+        .model-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 22px;
+        }
+
+        .spec-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+        }
+
+        .highlight-row {
+            background: rgba(0, 245, 212, 0.05);
+        }
+
+        .highlight-row .model-name { color: #00f5d4; }
+
+        /* Executive Note */
+        .exec-note {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed #555;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .note-icon {
+            font-size: 32px;
+            color: #ffd166;
+        }
+
+        .note-content h3 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            color: #ffd166;
+            margin-bottom: 5px;
+        }
+
+        .note-content p {
+            font-size: 18px;
+            color: #b0b0b0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 5 / 7</div>
+        
+        <header>
+            <h1>เลือก Model ไหนดี?</h1>
+            <h2>RECOMMENDED_MODELS_LIST</h2>
+        </header>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>Size</th>
+                        <th>RAM Req.</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="model-name">Llama 3.2 3B</td>
+                        <td><span class="spec-tag">~2GB</span></td>
+                        <td><span class="spec-tag">8GB+</span></td>
+                        <td>
+                            <i class="fa-solid fa-bolt" style="color: #ffd166; margin-right: 8px;"></i>
+                            เร็ว, เบา, เริ่มต้นได้เลย
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="model-name">Phi-3 Mini</td>
+                        <td><span class="spec-tag">~2GB</span></td>
+                        <td><span class="spec-tag">8GB+</span></td>
+                        <td>
+                            <i class="fa-solid fa-brain" style="color: #4cc9f0; margin-right: 8px;"></i>
+                            Reasoning / ตรรกะดี
+                        </td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td class="model-name">Qwen 2.5 7B</td>
+                        <td><span class="spec-tag">~4GB</span></td>
+                        <td><span class="spec-tag">16GB+</span></td>
+                        <td>
+                            <i class="fa-solid fa-language" style="color: #00f5d4; margin-right: 8px;"></i>
+                            ภาษาไทยดีขึ้น (แนะนำ)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="exec-note">
+            <div class="note-icon"><i class="fa-regular fa-lightbulb"></i></div>
+            <div class="note-content">
+                <h3>💡 สำหรับผู้บริหาร</h3>
+                <p>คุณไม่ต้องลงเอง แค่รู้ว่ามีทางเลือกนี้ → สั่ง IT ได้ว่าต้องการอะไร (เช่น "ขอเครื่องที่รัน Qwen 7B ไหว")</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

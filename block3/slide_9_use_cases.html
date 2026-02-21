@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Cases in Thailand</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0f0f1a;
+            background-image: radial-gradient(circle at 50% 20%, #1a1a2e 0%, #0f0f1a 80%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 40px;
+            border-left: 4px solid #f72585;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Cards Container */
+        .use-case-container {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .use-case-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* Before/After Section */
+        .comparison-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .state-box {
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .state-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: 700;
+        }
+
+        .state-content {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .before-box {
+            background: rgba(255, 255, 255, 0.02);
+            color: #b0b0b0;
+            border-left: 3px solid #555;
+        }
+
+        .after-box {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-left: 3px solid; /* Color defined in specific styles */
+        }
+
+        .arrow-divider {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 18px;
+            margin: -10px 0;
+        }
+
+        /* Specific Styles */
+        /* Marketing */
+        .card-marketing .icon-box { background: rgba(247, 37, 133, 0.2); color: #f72585; }
+        .card-marketing .card-title { color: #f72585; }
+        .card-marketing .after-box { border-color: #f72585; background: rgba(247, 37, 133, 0.1); }
+
+        /* SME */
+        .card-sme .icon-box { background: rgba(255, 209, 102, 0.2); color: #ffd166; }
+        .card-sme .card-title { color: #ffd166; }
+        .card-sme .after-box { border-color: #ffd166; background: rgba(255, 209, 102, 0.1); }
+
+        /* L&D */
+        .card-lnd .icon-box { background: rgba(76, 201, 240, 0.2); color: #4cc9f0; }
+        .card-lnd .card-title { color: #4cc9f0; }
+        .card-lnd .after-box { border-color: #4cc9f0; background: rgba(76, 201, 240, 0.1); }
+
+        .highlight-text {
+            font-weight: 600;
+            display: block;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 3 / 7</div>
+        
+        <header>
+            <h1>Use Case ในสังคมไทย</h1>
+            <h2>3 ตัวอย่างจริง: Marketing, SME, และ L&D</h2>
+        </header>
+
+        <div class="use-case-container">
+            <!-- Marketing -->
+            <div class="use-case-card card-marketing">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fa-solid fa-bullhorn"></i></div>
+                    <div class="card-title">Marketing</div>
+                </div>
+                <div class="comparison-section">
+                    <div class="state-box before-box">
+                        <span class="state-label">Before</span>
+                        <div class="state-content">
+                            จ้าง Production House<br>
+                            50,000+ บาท / 2 สัปดาห์<br>
+                            (รอคิวนาน แก้ไขยาก)
+                        </div>
+                    </div>
+                    <div class="arrow-divider"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="state-box after-box">
+                        <span class="state-label">With AI Pipeline</span>
+                        <div class="state-content">
+                            ทำเอง In-house<br>
+                            <span class="highlight-text">0 บาท / เสร็จในครึ่งวัน</span>
+                            (เหมาะกับ Social Content เร็วๆ)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SME -->
+            <div class="use-case-card card-sme">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="card-title">SME (ร้านอาหาร)</div>
+                </div>
+                <div class="comparison-section">
+                    <div class="state-box before-box">
+                        <span class="state-label">Before</span>
+                        <div class="state-content">
+                            จ้างช่างภาพถ่ายเมนู<br>
+                            3,000 บาท / ครั้ง<br>
+                            (นานๆ ถ่ายที เมนูไม่อัปเดต)
+                        </div>
+                    </div>
+                    <div class="arrow-divider"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="state-box after-box">
+                        <span class="state-label">With AI Pipeline</span>
+                        <div class="state-content">
+                            ถ่ายเอง + AI Enhance<br>
+                            <span class="highlight-text">ทำ Video Reels ได้ทุกสัปดาห์</span>
+                            (Engagement ดีกว่าภาพนิ่ง)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- L&D -->
+            <div class="use-case-card card-lnd">
+                <div class="card-header">
+                    <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="card-title">L&D / HR</div>
+                </div>
+                <div class="comparison-section">
+                    <div class="state-box before-box">
+                        <span class="state-label">Before</span>
+                        <div class="state-content">
+                            ซื้อ Stock Photo<br>
+                            ภาพซ้ำกับบริษัทอื่น<br>
+                            (ไม่ตรงบริบทองค์กร)
+                        </div>
+                    </div>
+                    <div class="arrow-divider"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="state-box after-box">
+                        <span class="state-label">With AI Pipeline</span>
+                        <div class="state-content">
+                            สร้างภาพ Context ไทย<br>
+                            <span class="highlight-text">Unique & Copyright Free</span>
+                            (ใส่ชุดฟอร์มบริษัทได้)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

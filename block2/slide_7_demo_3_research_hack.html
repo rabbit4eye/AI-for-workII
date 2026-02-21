@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 3: Research Hack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 50% 40%, #2a2a4e 0%, #1a1a2e 80%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .demo-badge {
+            background: rgba(76, 201, 240, 0.15); /* Blue accent for pre-recorded */
+            color: #4cc9f0;
+            border: 1px solid #4cc9f0;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.2);
+        }
+
+        .icon-wrapper {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .icon-wrapper i {
+            font-size: 100px;
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 36px;
+            font-weight: 300;
+            color: #b0b0b0;
+            margin-bottom: 60px;
+            max-width: 900px;
+            line-height: 1.4;
+        }
+
+        /* Speed Up Note */
+        .speed-note {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-left: 4px solid #f72585; /* Pink accent for contrast */
+        }
+
+        .speed-icon {
+            font-size: 24px;
+            color: #f72585;
+            animation: pulse 2s infinite;
+        }
+
+        .speed-text {
+            text-align: left;
+        }
+
+        .speed-text strong {
+            display: block;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .speed-text span {
+            font-size: 16px;
+            color: #b0b0b0;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.6; transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 2 / 7</div>
+
+        <div class="demo-badge">
+            <i class="fa-solid fa-clapperboard"></i>
+            PRE-RECORDED DEMO
+        </div>
+
+        <div class="icon-wrapper">
+            <!-- Decorative elements could go here -->
+        </div>
+
+        <h1>Demo 3: Research Hack</h1>
+        <h2>Compile comparison report — AI tools for enterprise</h2>
+
+        <div class="speed-note">
+            <i class="fa-solid fa-forward-fast speed-icon"></i>
+            <div class="speed-text">
+                <strong>Time Compression Active</strong>
+                <span>(เร่งความเร็วช่วงรอประมวลผลให้ดูกระชับ)</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

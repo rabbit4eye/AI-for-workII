@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegate, Don't Dictate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 50% 30%, #2a2a4e 0%, #1a1a2e 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Principle Header */
+        .principle-label {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 18px;
+            color: #f72585;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            border: 1px solid #f72585;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: #b0b0b0;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* Comparison Area */
+        .comparison-wrapper {
+            display: flex;
+            width: 100%;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .example-box {
+            flex: 1;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .example-box.bad {
+            border: 1px solid rgba(255, 82, 82, 0.3);
+        }
+
+        .example-box.good {
+            border: 1px solid rgba(76, 201, 240, 0.5); /* Accent Blue */
+            background: rgba(76, 201, 240, 0.05);
+            box-shadow: 0 0 30px rgba(76, 201, 240, 0.1);
+        }
+
+        .status-icon {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .bad .status-icon {
+            background-color: #ff5252;
+            box-shadow: 0 4px 10px rgba(255, 82, 82, 0.4);
+        }
+
+        .good .status-icon {
+            background-color: #4cc9f0;
+            box-shadow: 0 4px 10px rgba(76, 201, 240, 0.4);
+        }
+
+        .box-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .bad .box-title { color: #ff5252; }
+        .good .box-title { color: #4cc9f0; }
+
+        .prompt-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Noto Sans Thai', sans-serif;
+        }
+
+        .process-arrow {
+            color: #777;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
+        /* Tooltip / Takeaway */
+        .takeaway-tooltip {
+            margin-top: 40px;
+            background: #f72585;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(247, 37, 133, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 2 / 7</div>
+        
+        <div class="principle-label">Principle 2</div>
+        <h1>Delegate, Don't Dictate</h1>
+        <h2>มอบหมาย ไม่ใช่สั่งทีละขั้น</h2>
+
+        <div class="comparison-wrapper">
+            <!-- Bad Example -->
+            <div class="example-box bad" onclick="toggleHighlight(this)">
+                <div class="status-icon"><i class="fa-solid fa-xmark"></i></div>
+                <div class="box-title">Dictate (สั่งขั้นตอน)</div>
+                <div class="prompt-text">
+                    "เปิด Google <i class="fa-solid fa-arrow-right process-arrow"></i> พิมพ์ 'ตั๋วเครื่องบิน' <i class="fa-solid fa-arrow-right process-arrow"></i> กดค้นหา <i class="fa-solid fa-arrow-right process-arrow"></i> เข้าเว็บแรก <i class="fa-solid fa-arrow-right process-arrow"></i> ดูราคา..."
+                </div>
+            </div>
+
+            <!-- Good Example -->
+            <div class="example-box good" onclick="toggleHighlight(this)">
+                <div class="status-icon"><i class="fa-solid fa-check"></i></div>
+                <div class="box-title">Delegate (สั่งผลลัพธ์)</div>
+                <div class="prompt-text">
+                    "หาตั๋วเครื่องบิน กรุงเทพ-เชียงใหม่ เม.ย. นี้ เปรียบเทียบ 3 สายการบินให้หน่อย"
+                </div>
+            </div>
+        </div>
+
+        <div class="takeaway-tooltip">
+            <i class="fa-regular fa-lightbulb"></i>
+            สังเกต: Prompt ที่ดี = บอก Outcome (ผลลัพธ์)
+        </div>
+    </div>
+
+    <script>
+        function toggleHighlight(element) {
+            // Remove active class from all
+            document.querySelectorAll('.example-box').forEach(el => {
+                el.style.transform = 'scale(1)';
+                el.style.zIndex = '1';
+            });
+            // Add to clicked
+            element.style.transform = 'scale(1.05)';
+            element.style.zIndex = '10';
+        }
+    </script>
+</body>
+</html>

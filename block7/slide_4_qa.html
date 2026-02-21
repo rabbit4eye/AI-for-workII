@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A Session</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #ffd700;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+
+        /* Background Glow */
+        .glow-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            z-index: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icon-wrapper {
+            font-size: 120px;
+            color: #ffd700;
+            margin-bottom: 30px;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 100px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: 5px;
+            line-height: 1;
+        }
+
+        .instruction-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .keyboard-icon {
+            color: #ffd700;
+            font-size: 24px;
+            animation: type 2s infinite;
+        }
+
+        .instruction-text {
+            font-size: 24px;
+            color: #e0e0e0;
+            font-weight: 300;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+        }
+
+        @keyframes type {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="glow-bg"></div>
+        <div class="progress-indicator">BLOCK 7 / 7</div>
+
+        <div class="content-wrapper">
+            <div class="icon-wrapper">
+                <i class="fa-regular fa-circle-question"></i>
+            </div>
+            
+            <h1>Q&A</h1>
+            
+            <div class="instruction-box">
+                <i class="fa-regular fa-keyboard keyboard-icon"></i>
+                <span class="instruction-text">พิมพ์คำถามใน Chat</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

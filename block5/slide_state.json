@@ -1,0 +1,108 @@
+{
+  "project_info": {
+    "title": "Block 5: Local LLM",
+    "created": 1771421322.2202125,
+    "last_updated": 1771421429.4196665,
+    "total_slides": 8
+  },
+  "slides": [
+    {
+      "id": "slide_1_block_title",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_hook_privacy",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_principle_privacy",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_demo_install_lm_studio",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_demo_anonymize",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "slide_6_model_recommendations",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "slide_7_use_cases_thai",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "slide_8_block_5_summary",
+      "state": "edited",
+      "pageNum": 8
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_block_title",
+      "title": "Block 5: Local LLM",
+      "summary": "Slide Title for Block 5 - Local LLM",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_2_hook_privacy",
+      "title": "Why Local Matters (The Hook)",
+      "summary": "Data privacy hook about copying contracts to ChatGPT",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_3_principle_privacy",
+      "title": "Principle: Privacy by Design",
+      "summary": "Privacy by Design principle and sensitive data examples",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_4_demo_install_lm_studio",
+      "title": "Demo: Install LM Studio",
+      "summary": "Pre-recorded demo transition for installing LM Studio",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_5_demo_anonymize",
+      "title": "Demo: Anonymize Document",
+      "summary": "Live demo transition for anonymizing documents locally",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_6_model_recommendations",
+      "title": "Model Recommendations",
+      "summary": "Table comparing Llama 3.2, Phi-3, and Qwen 2.5",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_7_use_cases_thai",
+      "title": "Use Cases in Thailand",
+      "summary": "Local LLM use cases for Legal, Finance, and HR",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_8_block_5_summary",
+      "title": "Summary Block 5",
+      "summary": "Summary of Block 5 and next block teaser",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}

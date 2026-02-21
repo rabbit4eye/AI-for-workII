@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 2: Upscale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0f0f1a;
+            background-image: radial-gradient(circle at 50% 40%, #1a1a2e 0%, #0f0f1a 80%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Demo Badge */
+        .demo-badge {
+            background: rgba(76, 201, 240, 0.15);
+            color: #4cc9f0;
+            border: 1px solid #4cc9f0;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.2);
+        }
+
+        /* Main Visual */
+        .visual-container {
+            position: relative;
+            margin-bottom: 40px;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-icon {
+            font-size: 100px;
+            color: #ffffff;
+            z-index: 2;
+        }
+
+        .bg-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.3) 0%, transparent 70%);
+            animation: pulse 3s infinite;
+        }
+
+        .resolution-badge {
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            background: #00f5d4;
+            color: #0f0f1a;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transform: rotate(10deg);
+            box-shadow: 0 5px 15px rgba(0, 245, 212, 0.4);
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, #00f5d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 36px;
+            font-weight: 300;
+            color: #b0b0b0;
+            margin-bottom: 60px;
+        }
+
+        .highlight {
+            color: #00f5d4;
+            font-weight: 600;
+        }
+
+        /* Feature Box */
+        .feature-box {
+            display: flex;
+            gap: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            color: #e0e0e0;
+        }
+
+        .feature-item i {
+            color: #00f5d4;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 3 / 7</div>
+
+        <div class="demo-badge">
+            <i class="fa-solid fa-film"></i>
+            PRE-RECORDED DEMO
+        </div>
+
+        <div class="visual-container">
+            <div class="bg-glow"></div>
+            <i class="fa-solid fa-expand main-icon"></i>
+            <div class="resolution-badge">4K Ready</div>
+        </div>
+
+        <h1>Demo 2: Upscale Image</h1>
+        <h2>Upscayl: 1024px <i class="fa-solid fa-arrow-right" style="font-size: 24px; margin: 0 10px; color: #00f5d4;"></i> <span class="highlight">4096px</span></h2>
+
+        <div class="feature-box">
+            <div class="feature-item">
+                <i class="fa-solid fa-bolt"></i>
+                <span>คมชัดขึ้น 4 เท่า</span>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-wifi"></i>
+                <span>Offline Processing</span>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Privacy Safe</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

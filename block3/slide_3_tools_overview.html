@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Overview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px; /* keep as required */
+            background-color: #0f0f1a;
+            background-image: radial-gradient(circle at 80% 20%, #1a1a2e 0%, #0f0f1a 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px 20px; /* keep top 60, reduce bottom to save space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 20px; /* reduced from 40 -> saves vertical space */
+            border-left: 4px solid #00f5d4;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 28px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Tools List */
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* reduced from 15 */
+            margin-bottom: 20px; /* reduced to tighten layout */
+        }
+
+        .tool-row {
+            display: grid;
+            grid-template-columns: 60px 200px 1fr 150px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px 20px; /* reduced from 15 25 */
+            transition: background 0.2s;
+        }
+
+        .tool-row:hover { background: rgba(255, 255, 255, 0.05); }
+
+        .step-icon { font-size: 24px; color: #b0b0b0; }
+
+        .step-name {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .tool-name {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 20px;
+            color: #00f5d4;
+        }
+
+        .status-badge {
+            background: rgba(0, 245, 212, 0.1);
+            color: #00f5d4;
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            padding: 5px 10px; /* slightly narrower */
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Cost Comparison */
+        .cost-comparison {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px; /* replace auto with fixed small gap to reduce large stretch */
+        }
+
+        .cost-card {
+            flex: 1;
+            padding: 12px; /* reduced from 25 */
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cost-ai {
+            background: linear-gradient(135deg, rgba(0, 245, 212, 0.1) 0%, rgba(0, 245, 212, 0.05) 100%);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+        }
+
+        .cost-trad {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        .cost-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 6px; /* slightly tighter */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cost-value {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .cost-sub {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-top: 4px;
+        }
+
+        .highlight-free { color: #00f5d4; text-shadow: 0 0 15px rgba(0, 245, 212, 0.4); }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 3 / 7</div>
+        
+        <header>
+            <h1>Tools ที่ใช้ (Free Tier)</h1>
+            <h2>ทั้ง Pipeline ใช้ฟรีได้ทั้งหมด — เริ่มต้นที่ 0 บาท</h2>
+        </header>
+
+        <div class="tools-list">
+            <!-- Row 1 -->
+            <div class="tool-row">
+                <div class="step-icon"><i class="fa-regular fa-image"></i></div>
+                <div class="step-name">Image Gen</div>
+                <div class="tool-name">Google AI Studio / Freepik</div>
+                <div class="status-badge">Free Tier</div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="tool-row">
+                <div class="step-icon"><i class="fa-solid fa-table-cells-large"></i></div>
+                <div class="step-name">Grid Split</div>
+                <div class="tool-name">Photopea / Preview</div>
+                <div class="status-badge">Free</div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="tool-row">
+                <div class="step-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                <div class="step-name">Upscale</div>
+                <div class="tool-name">Upscayl (Desktop App)</div>
+                <div class="status-badge">Free / Offline</div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="tool-row">
+                <div class="step-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                <div class="step-name">Video Gen</div>
+                <div class="tool-name">Veo (in AI Studio)</div>
+                <div class="status-badge">Free Tier</div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="tool-row">
+                <div class="step-icon"><i class="fa-solid fa-scissors"></i></div>
+                <div class="step-name">Edit</div>
+                <div class="tool-name">CapCut</div>
+                <div class="status-badge">Free</div>
+            </div>
+        </div>
+
+        <div class="cost-comparison">
+            <div class="cost-card cost-ai">
+                <div class="cost-title">AI Pipeline Cost</div>
+                <div class="cost-value highlight-free">0 THB</div>
+                <div class="cost-sub">Time: 1-2 Hours</div>
+            </div>
+            <div class="cost-card cost-trad">
+                <div class="cost-title">Traditional Production</div>
+                <div class="cost-value">30,000+</div>
+                <div class="cost-sub">Time: 1-2 Weeks</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Cases: Before vs After</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #f0f0f0; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #ffffff;
+            color: #202124;
+            font-family: 'Google Sans', 'Sarabun', sans-serif;
+            position: relative;
+            padding: 60px 80px 20px; /* keep top padding (title) but reduce bottom */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #5f6368;
+            background: #f1f3f4;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 20px; /* reduced from 40 */
+            border-left: 5px solid #34a853;
+            padding-left: 25px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #202124;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: #5f6368;
+        }
+
+        /* Scenarios Container */
+        .scenarios-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* reduced gap to save vertical space */
+            flex: 1;
+        }
+
+        /* Scenario Card */
+        .scenario-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 18px; /* reduced from 25 */
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px; /* reduced from 20 */
+            padding-bottom: 8px; /* reduced from 15 */
+            border-bottom: 1px solid #dadce0;
+        }
+
+        .role-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e8f0fe;
+            color: #1967d2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .role-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #3c4043;
+        }
+
+        .comparison-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .comp-box {
+            flex: 1;
+            padding: 12px; /* slightly reduced inner padding */
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .box-before {
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            color: #5f6368;
+        }
+
+        .box-after {
+            background: #e6f4ea;
+            border: 1px solid #34a853;
+            color: #0d652d;
+        }
+
+        .arrow-icon {
+            color: #dadce0;
+            font-size: 24px;
+        }
+
+        .box-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .box-content {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .time-bad {
+            background: #fce8e6;
+            color: #c5221f;
+        }
+
+        .time-good {
+            background: #34a853;
+            color: #ffffff;
+        }
+
+        .save-tag {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #34a853;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 6 / 7</div>
+        
+        <header>
+            <h1>Before vs After</h1>
+            <h2>ผลลัพธ์จริงจากการใช้ AI ใน Workflow</h2>
+        </header>
+
+        <div class="scenarios-container">
+            <!-- Scenario 1: PM -->
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="role-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <div class="role-title">Project Manager: Friday Weekly Report</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-box box-before">
+                        <span class="box-label" style="color: #ea4335;">Before</span>
+                        <div class="box-content">เขียนเอง รวบรวมจาก Notes</div>
+                        <div class="time-badge time-bad"><i class="fa-regular fa-clock"></i> 15 นาที</div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    <div class="comp-box box-after">
+                        <div class="save-tag">Save 85%</div>
+                        <span class="box-label" style="color: #137333;">After (Gemini in Docs)</span>
+                        <div class="box-content">สรุปจาก Notes อัตโนมัติ</div>
+                        <div class="time-badge time-good"><i class="fa-solid fa-bolt"></i> 2 นาที</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2: Finance -->
+            <div class="scenario-card">
+                <div class="scenario-header">
+                    <div class="role-icon" style="background: #fce8e6; color: #c5221f;"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div class="role-title">Finance: Monthly Variance Analysis</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-box box-before">
+                        <span class="box-label" style="color: #ea4335;">Before</span>
+                        <div class="box-content">เขียนสูตรเอง + Google หาวิธี</div>
+                        <div class="time-badge time-bad"><i class="fa-regular fa-clock"></i> 30 นาที</div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    <div class="comp-box box-after">
+                        <div class="save-tag">Save 83%</div>
+                        <span class="box-label" style="color: #137333;">After (AI in Sheets)</span>
+                        <div class="box-content">ถาม AI ได้สูตร + Formatting</div>
+                        <div class="time-badge time-good"><i class="fa-solid fa-bolt"></i> 5 นาที</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

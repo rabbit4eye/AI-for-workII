@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block 3 Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0f0f1a;
+            background-image: radial-gradient(circle at 80% 20%, #1a1a2e 0%, #0f0f1a 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 50px;
+            border-left: 4px solid #00f5d4;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        /* Left Column: Checklist */
+        .checklist-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .checklist-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+
+        .checklist-item.checked {
+            background: rgba(0, 245, 212, 0.1);
+            border-color: #00f5d4;
+        }
+
+        .checkbox {
+            width: 32px;
+            height: 32px;
+            border: 2px solid #b0b0b0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            transition: all 0.2s;
+        }
+
+        .checklist-item.checked .checkbox {
+            background-color: #00f5d4;
+            border-color: #00f5d4;
+            color: #0f0f1a;
+        }
+
+        .item-text strong {
+            display: block;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .item-text span {
+            font-size: 16px;
+            color: #b0b0b0;
+        }
+
+        /* Right Column: Tools & Next */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .tools-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .tools-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #00f5d4;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tools-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tools-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #e0e0e0;
+        }
+
+        .tools-list i {
+            width: 30px;
+            text-align: center;
+            color: #b0b0b0;
+        }
+
+        .next-card {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(157, 78, 221, 0.05) 100%);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .next-label {
+            font-size: 14px;
+            color: #9d4edd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .next-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .next-icon {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 100px;
+            color: rgba(157, 78, 221, 0.1);
+            transform: rotate(-15deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 3 / 7</div>
+        
+        <header>
+            <h1>สรุป Block 3: Creative AI Pipeline</h1>
+            <h2>3 สิ่งที่ได้จาก Block นี้</h2>
+        </header>
+
+        <div class="content-grid">
+            <!-- Left: Checklist -->
+            <div class="checklist-container">
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>Pipeline Thinking</strong>
+                        <span>มองงานเป็น Flow ต่อเนื่อง ไม่ใช่หา Tool เดียวจบ</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>Specialized Tools</strong>
+                        <span>เลือกเครื่องมือที่เก่งที่สุดในแต่ละหน้าที่ (Image, Upscale, Video)</span>
+                    </div>
+                </div>
+
+                <div class="checklist-item" onclick="this.classList.toggle('checked')">
+                    <div class="checkbox"><i class="fa-solid fa-check"></i></div>
+                    <div class="item-text">
+                        <strong>Good Enough -> Great</strong>
+                        <span>AI ทำ 80% เราตบแต่ง 20% งานเสร็จเร็วและใช้ได้จริง</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Tools & Next -->
+            <div class="right-col">
+                <div class="tools-card">
+                    <div class="tools-title">Tools Checklist</div>
+                    <ul class="tools-list">
+                        <li><i class="fa-regular fa-image"></i> Google AI Studio</li>
+                        <li><i class="fa-solid fa-magnifying-glass-plus"></i> Upscayl</li>
+                        <li><i class="fa-solid fa-clapperboard"></i> Veo</li>
+                        <li><i class="fa-solid fa-scissors"></i> CapCut</li>
+                    </ul>
+                </div>
+
+                <div class="next-card">
+                    <span class="next-label">Next Block</span>
+                    <div class="next-title">
+                        Voice Mode <i class="fa-solid fa-arrow-right" style="font-size: 20px; margin-left: auto;"></i>
+                    </div>
+                    <i class="fa-solid fa-microphone-lines next-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

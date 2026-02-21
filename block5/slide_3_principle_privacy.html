@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy by Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #00f5d4;
+            opacity: 0.5;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 50px;
+            border-left: 4px solid #00f5d4;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        /* Left Column: Rule */
+        .rule-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .rule-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            color: #00f5d4;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 245, 212, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .rule-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .rule-icon {
+            font-size: 24px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .rule-text strong {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .rule-text span {
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+
+        /* Right Column: Sensitive Data */
+        .terminal-box {
+            background: #000000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: 0 0 30px rgba(0, 245, 212, 0.05);
+            position: relative;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .data-list {
+            list-style: none;
+        }
+
+        .data-item {
+            padding: 15px 0;
+            border-bottom: 1px dashed #333;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #e0e0e0;
+            font-size: 18px;
+        }
+
+        .data-item:last-child { border-bottom: none; }
+
+        .data-icon {
+            color: #00f5d4;
+            font-size: 20px;
+        }
+
+        .warning-text {
+            color: #ff3b3b;
+            font-size: 14px;
+            margin-top: 20px;
+            text-align: center;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 5 / 7</div>
+        
+        <header>
+            <h1>Privacy by Design</h1>
+            <h2>เลือกตั้งแต่แรก ไม่ใช่มาคิดทีหลัง</h2>
+        </header>
+
+        <div class="content-grid">
+            <!-- Left: Rule -->
+            <div class="rule-box">
+                <h3 class="rule-title">Right Tool, Right Data</h3>
+                
+                <div class="rule-item">
+                    <div class="rule-icon" style="color: #ff3b3b;"><i class="fa-solid fa-cloud"></i></div>
+                    <div class="rule-text">
+                        <strong style="color: #ff3b3b;">Cloud AI</strong>
+                        <span>งานทั่วไป / Public Info</span>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon" style="color: #00f5d4;"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="rule-text">
+                        <strong style="color: #00f5d4;">Local LLM</strong>
+                        <span>งาน Sensitive / ความลับ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Sensitive Data -->
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="margin-left: 10px; color: #666; font-size: 12px;">sensitive_data_check.sh</span>
+                </div>
+
+                <ul class="data-list">
+                    <li class="data-item">
+                        <i class="fa-solid fa-file-contract data-icon"></i>
+                        สัญญา / ข้อมูลกฎหมาย
+                    </li>
+                    <li class="data-item">
+                        <i class="fa-solid fa-chart-line data-icon"></i>
+                        ข้อมูลการเงิน / งบลับ
+                    </li>
+                    <li class="data-item">
+                        <i class="fa-solid fa-users data-icon"></i>
+                        ข้อมูลพนักงาน (PDPA)
+                    </li>
+                    <li class="data-item">
+                        <i class="fa-solid fa-chess-knight data-icon"></i>
+                        กลยุทธ์ที่ยังไม่ประกาศ
+                    </li>
+                </ul>
+
+                <p class="warning-text">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    ข้อมูลเหล่านี้ <strong>ห้าม</strong> ส่งขึ้น Cloud เด็ดขาด
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

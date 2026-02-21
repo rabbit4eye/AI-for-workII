@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 Principles Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 40px 40px 20px; /* keep top padding 40, reduce bottom */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #ffd700;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 8px; /* reduced from 20 */
+            border-left: 4px solid #ffd700;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: #ffd700;
+        }
+
+        /* Table Container */
+        .table-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 12px; /* reduced */
+            /* removed flex:1 to avoid forced stretching */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Sarabun', sans-serif;
+        }
+
+        th {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            text-align: left;
+            padding: 8px 12px; /* reduced */
+            font-size: 18px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        td {
+            padding: 6px 12px; /* reduced */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 18px;
+            color: #e0e0e0;
+            vertical-align: middle;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
+
+        .num-col {
+            font-family: 'Playfair Display', serif;
+            color: #ffd700;
+            font-weight: 700;
+            width: 50px;
+            text-align: center;
+        }
+
+        .principle-col {
+            font-weight: 700;
+            color: #ffffff;
+            width: 40%;
+        }
+
+        .desc-col {
+            color: #b0b0b0;
+            font-weight: 300;
+        }
+
+        /* Bottom Insight */
+        .insight-box {
+            text-align: center;
+            padding: 10px; /* reduced */
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #ffd700;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 7 / 7</div>
+        
+        <header>
+            <h1>9 Principles ที่ได้วันนี้</h1>
+            <h2>Core Mindset for AI Adoption</h2>
+        </header>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="num-col">#</th>
+                        <th>Principle</th>
+                        <th>จำสั้นๆ (Key Takeaway)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="num-col">1</td>
+                        <td class="principle-col">Stack, Don't Replace</td>
+                        <td class="desc-col">เพิ่ม AI layer ไม่ทิ้งของเดิม</td>
+                    </tr>
+                    <tr>
+                        <td class="num-col">2</td>
+                        <td class="principle-col">Delegate, Don't Dictate</td>
+                        <td class="desc-col">สั่ง Outcome ไม่สั่ง Step</td>
+                    </tr>
+                    <tr>
+                        <td class="num-col">3</td>
+                        <td class="principle-col">Autonomy + Accountability</td>
+                        <td class="desc-col">ยิ่งอิสระ ยิ่งต้องตรวจงาน</td>
+                    </tr>
+                    <tr>
+                        <td class="num-col">4</td>
+                        <td class="principle-col">Pipeline Thinking</td>
+                        <td class="desc-col">มองเป็น Flow ไม่ใช่ Tool เดียว</td>
+                    </tr>
+                    <tr>
+                        <td class="num-col">5</td>
+                        <td class="principle-col">Good Enough → Great</td>
+                        <td class="desc-col">AI Draft 80% คุณ Polish 20%</td>
+                    </tr>
+                    <tr>
+                        <td class="num-col">6</td>
+                        <td class="principle-col">Right Interface</td>
+                        <td class="desc-col">Voice/Text ตาม Context</td>
+                    </tr>
+                    <tr>
+                        <td class="num-col">7</td>
+                        <td class="principle-col">Privacy by Design</td>
+                        <td class="desc-col">คิดก่อนส่งข้อมูล (Cloud vs Local)</td>
+                    </tr>
+                    <tr>
+                        <td class="num-col">8</td>
+                        <td class="principle-col">Right Tool, Right Data</td>
+                        <td class="desc-col">เลือก Tool ให้เหมาะกับความลับ</td>
+                    </tr>
+                    <tr>
+                        <td class="num-col">9</td>
+                        <td class="principle-col">AI in Your Workflow</td>
+                        <td class="desc-col">ฝัง AI ใน Tool เดิม (ลด Copy-Paste)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="insight-box">
+            "Tool จะเปลี่ยนทุกปี — แต่ Principle ใช้ได้ตลอดไป"
+        </div>
+    </div>
+</body>
+</html>

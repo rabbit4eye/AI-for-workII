@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block 5 Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #00f5d4;
+            opacity: 0.5;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 48px;
+            font-weight: 700;
+            color: #00f5d4;
+            letter-spacing: -1px;
+        }
+
+        .status-badge {
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid #00f5d4;
+            color: #00f5d4;
+            padding: 5px 15px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        /* Left: Checklist (System Log) */
+        .log-container {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .log-item {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .log-item:nth-child(1) { animation-delay: 0.2s; }
+        .log-item:nth-child(2) { animation-delay: 0.4s; }
+        .log-item:nth-child(3) { animation-delay: 0.6s; }
+
+        .log-timestamp {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .log-content {
+            flex: 1;
+        }
+
+        .log-title {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .log-desc {
+            color: #b0b0b0;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 18px;
+        }
+
+        .check-icon {
+            color: #00f5d4;
+        }
+
+        /* Right: Next Module */
+        .next-module-box {
+            background: #111;
+            border: 1px solid #333;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .next-label {
+            font-family: 'JetBrains Mono', monospace;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .next-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .next-icon {
+            font-size: 60px;
+            color: #4285f4; /* Google Blue */
+            margin-bottom: 30px;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 4px;
+            background: #333;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 30%;
+            background: #00f5d4;
+            animation: load 2s infinite ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes load {
+            0% { left: -30%; }
+            100% { left: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 5 / 7</div>
+        
+        <header>
+            <h1>System Log: Block 5</h1>
+            <div class="status-badge">STATUS: COMPLETED</div>
+        </header>
+
+        <div class="content-grid">
+            <!-- Left: Log -->
+            <div class="log-container">
+                <div class="log-item">
+                    <div class="log-timestamp">[LOG_01]</div>
+                    <div class="log-content">
+                        <div class="log-title"><i class="fa-solid fa-check check-icon"></i> Local AI Exists</div>
+                        <div class="log-desc">Cloud ไม่ใช่ทางเลือกเดียว Local AI ใช้ได้จริงและฟรี</div>
+                    </div>
+                </div>
+
+                <div class="log-item">
+                    <div class="log-timestamp">[LOG_02]</div>
+                    <div class="log-content">
+                        <div class="log-title"><i class="fa-solid fa-check check-icon"></i> Privacy First</div>
+                        <div class="log-desc">คิดก่อนส่งข้อมูล Sensitive Data ต้องอยู่บนเครื่อง</div>
+                    </div>
+                </div>
+
+                <div class="log-item">
+                    <div class="log-timestamp">[LOG_03]</div>
+                    <div class="log-content">
+                        <div class="log-title"><i class="fa-solid fa-check check-icon"></i> LM Studio</div>
+                        <div class="log-desc">เครื่องมือฟรี ไม่ต้องเขียน Code ติดตั้งง่าย</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Next Module -->
+            <div class="next-module-box">
+                <div class="next-label">Loading Next Module...</div>
+                <i class="fa-brands fa-google next-icon"></i>
+                <div class="next-title">Google Ecosystem</div>
+                <div style="color: #b0b0b0; font-size: 18px;">+ AI Connectors</div>
+                
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

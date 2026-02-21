@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Demo 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 50% 50%, #2a2a4e 0%, #0f0f1a 100%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Live Badge */
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+        }
+
+        .live-dot {
+            width: 16px;
+            height: 16px;
+            background-color: #ff3b3b;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff3b3b;
+            animation: blink 1.5s infinite;
+        }
+
+        .live-text {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff3b3b;
+            letter-spacing: 2px;
+        }
+
+        /* Main Title */
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ffffff, #b0b0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: #b0b0b0;
+            margin-bottom: 60px;
+        }
+
+        /* Prompt Box */
+        .prompt-container {
+            width: 800px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 0;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .prompt-header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .prompt-label {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 14px;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .prompt-content {
+            padding: 30px;
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            line-height: 1.6;
+            color: #4cc9f0; /* Accent Blue for "Code/Prompt" feel */
+        }
+
+        .prompt-content i {
+            color: #f72585; /* Accent Pink for icons inside prompt */
+            margin-right: 10px;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 2 / 7</div>
+        
+        <div class="live-badge">
+            <div class="live-dot"></div>
+            <div class="live-text">LIVE DEMO</div>
+        </div>
+
+        <h1>Demo 1: Life Hack</h1>
+        <h2>เปรียบเทียบเที่ยวบิน กรุงเทพ → โอซาก้า</h2>
+
+        <div class="prompt-container">
+            <div class="prompt-header">
+                <span class="prompt-label">Example Prompt</span>
+                <button class="copy-btn" onclick="copyPrompt()">
+                    <i class="fa-regular fa-copy"></i> Copy Prompt
+                </button>
+            </div>
+            <div class="prompt-content" id="promptText">
+                "ช่วยหาตั๋วเครื่องบิน กรุงเทพ-โอซาก้า เม.ย. 2026 เปรียบเทียบ 3 สายการบิน สรุปเป็นตาราง"
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyPrompt() {
+            const text = document.getElementById('promptText').innerText.replace(/"/g, '');
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy Prompt';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

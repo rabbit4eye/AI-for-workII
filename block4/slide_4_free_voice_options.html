@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice AI Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            background-image: radial-gradient(circle at 20% 20%, #16213e 0%, #1a1a2e 70%);
+            color: #ffffff;
+            font-family: 'Noto Sans Thai', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 50px;
+            border-left: 4px solid #ff6b35;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Noto Sans Thai', sans-serif;
+            font-size: 24px;
+            font-weight: 300;
+            color: #b0b0b0;
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .tool-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Card Elements */
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tool-name {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .price-badge {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-list {
+            list-style: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .feature-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-item:last-child { border-bottom: none; }
+
+        .feature-item i { font-size: 14px; opacity: 0.7; }
+
+        /* Specific Styles */
+        /* Pi.ai (Recommended) */
+        .card-pi {
+            border-color: #ff6b35;
+            background: linear-gradient(180deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.1);
+        }
+        .card-pi .card-icon { color: #ff6b35; background: rgba(255, 107, 53, 0.1); }
+        .card-pi .price-badge { background: #ff6b35; color: #1a1a2e; }
+        .card-pi .feature-item i { color: #ff6b35; }
+
+        .recommend-tag {
+            position: absolute;
+            top: -15px;
+            background: #ff6b35;
+            color: #ffffff;
+            padding: 5px 20px;
+            border-radius: 10px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Gemini */
+        .card-gemini .card-icon { color: #4cc9f0; background: rgba(76, 201, 240, 0.1); }
+        .card-gemini .price-badge { background: rgba(76, 201, 240, 0.1); color: #4cc9f0; border: 1px solid #4cc9f0; }
+        .card-gemini .feature-item i { color: #4cc9f0; }
+
+        /* ChatGPT */
+        .card-gpt .card-icon { color: #10a37f; background: rgba(16, 163, 127, 0.1); }
+        .card-gpt .price-badge { background: rgba(255, 255, 255, 0.1); color: #b0b0b0; border: 1px solid #555; }
+        .card-gpt .feature-item i { color: #10a37f; }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 4 / 7</div>
+        
+        <header>
+            <h1>Voice AI — ใช้ฟรีได้</h1>
+            <h2>เริ่มจาก Pi.ai — ฟรี + เสียงธรรมชาติสุด</h2>
+        </header>
+
+        <div class="cards-container">
+            <!-- Pi.ai -->
+            <div class="tool-card card-pi">
+                <div class="recommend-tag"><i class="fa-solid fa-star"></i> Recommended</div>
+                <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
+                <div class="tool-name">Pi.ai</div>
+                <div class="price-badge">Free Forever</div>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> เสียงธรรมชาติที่สุด (EQ สูง)</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> โทรคุยได้ผ่าน Browser</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> เหมาะกับ Brainstorm</li>
+                </ul>
+            </div>
+
+            <!-- Gemini -->
+            <div class="tool-card card-gemini">
+                <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="tool-name">Gemini Live</div>
+                <div class="price-badge">Free Tier</div>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> เชื่อมต่อ Google Workspace</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> ข้อมูล Real-time</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> เก่งภาษาไทย</li>
+                </ul>
+            </div>
+
+            <!-- ChatGPT -->
+            <div class="tool-card card-gpt">
+                <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+                <div class="tool-name">ChatGPT Voice</div>
+                <div class="price-badge">Plus Required</div>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> ฉลาดที่สุด (Logic)</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Advanced Voice Mode</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> ปรับอารมณ์เสียงได้</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

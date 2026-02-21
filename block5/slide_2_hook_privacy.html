@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Local Matters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #00f5d4;
+            opacity: 0.5;
+        }
+
+        /* Quote Section */
+        .quote-container {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .quote-text {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #e0e0e0;
+        }
+
+        .highlight-danger {
+            color: #ff3b3b;
+            text-shadow: 0 0 20px rgba(255, 59, 59, 0.3);
+        }
+
+        .highlight-server {
+            border-bottom: 3px solid #ff3b3b;
+            padding-bottom: 5px;
+        }
+
+        /* Comparison Section */
+        .comparison-box {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .comp-card {
+            flex: 1;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 4px; /* Sharp corners for matrix feel */
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s;
+        }
+
+        .comp-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-cloud {
+            border-left: 5px solid #ff3b3b;
+        }
+
+        .card-local {
+            border-left: 5px solid #00f5d4;
+            background: rgba(0, 245, 212, 0.05);
+            border-color: rgba(0, 245, 212, 0.3);
+        }
+
+        .icon-box {
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .cloud-icon { color: #ff3b3b; }
+        .local-icon { color: #00f5d4; }
+
+        .text-box h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .text-box p {
+            font-size: 18px;
+            color: #b0b0b0;
+        }
+
+        .cloud-title { color: #ff3b3b; }
+        .local-title { color: #00f5d4; }
+
+        /* Animation */
+        .data-flow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 5 / 7</div>
+
+        <div class="quote-container">
+            <p class="quote-text">
+                "ทุกครั้งที่คุณ <span class="highlight-danger">Copy</span> สัญญาลูกค้า<br>
+                ไปวางใน ChatGPT..."
+            </p>
+            <p class="quote-text" style="margin-top: 30px; font-size: 36px; color: #b0b0b0;">
+                ข้อมูลนั้นไปอยู่ <span class="highlight-server">Server ที่อเมริกา</span>
+            </p>
+        </div>
+
+        <div class="comparison-box">
+            <!-- Cloud Card -->
+            <div class="comp-card card-cloud">
+                <div class="icon-box cloud-icon">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <div class="text-box">
+                    <h3 class="cloud-title">Cloud AI</h3>
+                    <p>ข้อมูลออกจากเครื่อง</p>
+                </div>
+            </div>
+
+            <!-- Local Card -->
+            <div class="comp-card card-local">
+                <div class="icon-box local-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="text-box">
+                    <h3 class="local-title">Local LLM</h3>
+                    <p>ข้อมูลอยู่ในเครื่อง 100%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Your Workflow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #f0f0f0; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #ffffff;
+            color: #202124;
+            font-family: 'Google Sans', 'Sarabun', sans-serif;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #5f6368;
+            background: #f1f3f4;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 50px;
+            border-left: 5px solid #4285f4;
+            padding-left: 25px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #202124;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: #5f6368;
+        }
+
+        /* Comparison Container */
+        .comparison-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        /* Workflow Row */
+        .workflow-row {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .status-icon {
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+
+        .status-bad {
+            background: #fce8e6;
+            color: #ea4335;
+        }
+
+        .status-good {
+            background: #e6f4ea;
+            color: #34a853;
+        }
+
+        .steps-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            gap: 15px;
+        }
+
+        .step-card {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            border: 1px solid #dadce0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #3c4043;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .step-arrow {
+            color: #9aa0a6;
+            font-size: 18px;
+        }
+
+        .step-icon {
+            color: #5f6368;
+        }
+
+        .step-final {
+            background: #e8f0fe;
+            border-color: #4285f4;
+            color: #1967d2;
+        }
+
+        .workflow-label {
+            position: absolute;
+            top: -12px;
+            left: 30px;
+            background: white;
+            padding: 0 10px;
+            font-size: 14px;
+            color: #5f6368;
+            font-weight: 700;
+            border-radius: 4px;
+            border: 1px solid #dadce0;
+        }
+
+        /* Insight Box */
+        .insight-box {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: #e8f0fe;
+            border-radius: 12px;
+            color: #1967d2;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 6 / 7</div>
+        
+        <header>
+            <h1>AI in Your Workflow</h1>
+            <h2>Not a New Workflow — ใช้ AI ในที่เดิมที่คุณอยู่</h2>
+        </header>
+
+        <div class="comparison-container">
+            <!-- Old Way -->
+            <div class="workflow-row">
+                <div class="workflow-label">Old Way (Tool แยก)</div>
+                <div class="status-icon status-bad"><i class="fa-solid fa-xmark"></i></div>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <i class="fa-solid fa-globe step-icon"></i> เปิด ChatGPT
+                    </div>
+                    <i class="fa-solid fa-arrow-right step-arrow"></i>
+                    <div class="step-card">
+                        <i class="fa-solid fa-keyboard step-icon"></i> พิมพ์ Prompt
+                    </div>
+                    <i class="fa-solid fa-arrow-right step-arrow"></i>
+                    <div class="step-card">
+                        <i class="fa-solid fa-copy step-icon"></i> Copy
+                    </div>
+                    <i class="fa-solid fa-arrow-right step-arrow"></i>
+                    <div class="step-card step-final">
+                        <i class="fa-solid fa-file-word step-icon"></i> Paste ลง Docs
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Way -->
+            <div class="workflow-row">
+                <div class="workflow-label">New Way (Embedded AI)</div>
+                <div class="status-icon status-good"><i class="fa-solid fa-check"></i></div>
+                <div class="steps-container">
+                    <div class="step-card step-final" style="flex: 1; justify-content: center; background: #e6f4ea; border-color: #34a853; color: #137333;">
+                        <i class="fa-solid fa-file-word step-icon" style="color: #137333;"></i> 
+                        อยู่ใน Docs → สั่ง AI ตรงนั้นเลย (Gemini)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <i class="fa-solid fa-lightbulb" style="margin-right: 10px;"></i>
+            เป้าหมาย: ลดการสลับหน้าจอ (Context Switching) ให้เหลือ 0
+        </div>
+    </div>
+</body>
+</html>
