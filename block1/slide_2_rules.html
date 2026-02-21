@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Rules</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 24px;
+            color: #4cc9f0;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 40px;
+            border-left: 4px solid #4cc9f0;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: #4cc9f0;
+            letter-spacing: 1px;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .rule-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            transition: transform 0.3s;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #4cc9f0;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .info-content p {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.4;
+        }
+
+        /* Specific Colors */
+        .card-1 .icon-box { color: #4cc9f0; border: 1px solid rgba(76, 201, 240, 0.3); }
+        .card-2 .icon-box { color: #f72585; border: 1px solid rgba(247, 37, 133, 0.3); }
+        .card-3 .icon-box { color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); }
+        .card-4 .icon-box { color: #00ff9d; border: 1px solid rgba(0, 255, 157, 0.3); }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 1 / 7</div>
+        
+        <header>
+            <h1>กติกาวันนี้</h1>
+            <h2>Class Rules & Format</h2>
+        </header>
+
+        <div class="grid-container">
+            <!-- Time -->
+            <div class="rule-card card-1">
+                <div class="icon-box"><i class="fa-regular fa-clock"></i></div>
+                <div class="info-content">
+                    <h3>3 ชั่วโมงเต็ม</h3>
+                    <p>เนื้อหาเข้มข้น มีพักเบรก 2 ช่วง<br>(ช่วงละ 10 นาที)</p>
+                </div>
+            </div>
+
+            <!-- Chat -->
+            <div class="rule-card card-2">
+                <div class="icon-box"><i class="fa-regular fa-comments"></i></div>
+                <div class="info-content">
+                    <h3>ถาม Chat ได้ตลอด</h3>
+                    <p>พิมพ์ทิ้งไว้ได้เลย ผมอ่านทุกข้อความ<br>และตอบในช่วง Q&A</p>
+                </div>
+            </div>
+
+            <!-- Format -->
+            <div class="rule-card card-3">
+                <div class="icon-box"><i class="fa-solid fa-clapperboard"></i></div>
+                <div class="info-content">
+                    <h3>Demo สลับ Lecture</h3>
+                    <p>เน้นดูให้เข้าใจ concept<br>ไม่ต้องรีบทำตามทันที</p>
+                </div>
+            </div>
+
+            <!-- Device -->
+            <div class="rule-card card-4">
+                <div class="icon-box"><i class="fa-solid fa-mobile-screen"></i></div>
+                <div class="info-content">
+                    <h3>เปิดเว็บตามได้</h3>
+                    <p>ผมจะแชร์ Link หน้าเว็บ Interactive<br>ให้กดเล่นไปพร้อมกัน</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

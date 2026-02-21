@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real World Stack Examples</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .progress-indicator {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 24px;
+            color: #4cc9f0;
+            opacity: 0.8;
+            letter-spacing: 2px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 30px;
+            border-left: 4px solid #f72585;
+            padding-left: 20px;
+        }
+
+        h1 {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: #f72585;
+            letter-spacing: 1px;
+        }
+
+        /* Concept Comparison */
+        .concept-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .concept-box {
+            flex: 1;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .box-bad {
+            background: rgba(234, 67, 53, 0.1);
+            border: 1px solid rgba(234, 67, 53, 0.3);
+        }
+
+        .box-good {
+            background: rgba(52, 168, 83, 0.1);
+            border: 1px solid rgba(52, 168, 83, 0.3);
+        }
+
+        .concept-icon {
+            font-size: 32px;
+            width: 50px;
+            text-align: center;
+        }
+
+        .concept-text h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .concept-text p {
+            font-size: 18px;
+            color: #e0e0e0;
+        }
+
+        /* Examples Grid */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .example-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid #4cc9f0;
+        }
+
+        .role-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .role-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(76, 201, 240, 0.2);
+            color: #4cc9f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .role-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .state-row {
+            margin-bottom: 15px;
+        }
+
+        .state-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .state-content {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .before-text { color: #9aa0a6; }
+        .after-text { color: #ffffff; }
+
+        .arrow-down {
+            color: #4cc9f0;
+            text-align: center;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .highlight {
+            color: #4cc9f0;
+            font-weight: 700;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="progress-indicator">BLOCK 1 / 7</div>
+        
+        <header>
+            <h1>Stack ในชีวิตจริง</h1>
+            <h2>Real World Examples: Stack vs Replace</h2>
+        </header>
+
+        <!-- Concept Comparison -->
+        <div class="concept-row">
+            <div class="concept-box box-bad">
+                <div class="concept-icon" style="color: #ea4335;"><i class="fa-solid fa-xmark"></i></div>
+                <div class="concept-text">
+                    <h3 style="color: #ea4335;">Replace (เปลี่ยนทั้งหมด)</h3>
+                    <p>"ย้ายทุกคนไปใช้ Tool ใหม่ ทิ้งของเดิม"</p>
+                </div>
+            </div>
+            <div class="concept-box box-good">
+                <div class="concept-icon" style="color: #34a853;"><i class="fa-solid fa-check"></i></div>
+                <div class="concept-text">
+                    <h3 style="color: #34a853;">Stack (ต่อยอด)</h3>
+                    <p>"เพิ่ม AI ทำงานซ้ำ → คนทำงานที่มีค่ามากขึ้น"</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Examples -->
+        <div class="examples-grid">
+            <!-- GM -->
+            <div class="example-card">
+                <div class="role-header">
+                    <div class="role-icon"><i class="fa-solid fa-hotel"></i></div>
+                    <div class="role-title">GM โรงแรม</div>
+                </div>
+                <div class="state-row">
+                    <span class="state-label" style="color: #ea4335;">Before</span>
+                    <div class="state-content before-text">พนักงาน Front สรุป Review 2 ชม./วัน</div>
+                </div>
+                <div class="arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
+                <div class="state-row">
+                    <span class="state-label" style="color: #34a853;">After Stack</span>
+                    <div class="state-content after-text">AI สรุป 50 Review ใน 5 นาที → <span class="highlight">เอาเวลาไปดูแลแขก</span></div>
+                </div>
+            </div>
+
+            <!-- Executive -->
+            <div class="example-card">
+                <div class="role-header">
+                    <div class="role-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="role-title">ผู้บริหาร</div>
+                </div>
+                <div class="state-row">
+                    <span class="state-label" style="color: #ea4335;">Before</span>
+                    <div class="state-content before-text">อ่าน Report 20 หน้า ใช้เวลา 1 ชม.</div>
+                </div>
+                <div class="arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
+                <div class="state-row">
+                    <span class="state-label" style="color: #34a853;">After Stack</span>
+                    <div class="state-content after-text">AI สรุป 1 นาที → <span class="highlight">ใช้เวลาตัดสินใจ</span></div>
+                </div>
+            </div>
+
+            <!-- HR -->
+            <div class="example-card">
+                <div class="role-header">
+                    <div class="role-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="role-title">HR Director</div>
+                </div>
+                <div class="state-row">
+                    <span class="state-label" style="color: #ea4335;">Before</span>
+                    <div class="state-content before-text">Screen Resume 100 ใบ ใช้เวลา 1 วัน</div>
+                </div>
+                <div class="arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
+                <div class="state-row">
+                    <span class="state-label" style="color: #34a853;">After Stack</span>
+                    <div class="state-content after-text">AI Screen ให้ → <span class="highlight">สัมภาษณ์แค่ 10 คนที่ใช่</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

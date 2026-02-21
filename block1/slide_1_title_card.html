@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for Work II</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #000; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            font-family: 'Sarabun', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Abstract Background */
+        .bg-grid {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(rgba(76, 201, 240, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(76, 201, 240, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+            animation: grid-move 20s linear infinite;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(76, 201, 240, 0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            z-index: 1;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 120px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            background: linear-gradient(90deg, #4cc9f0, #f72585);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(76, 201, 240, 0.3);
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 300;
+            color: #e0e0e0;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        /* Countdown Timer */
+        .timer-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            padding: 20px 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.1);
+        }
+
+        .timer-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 18px;
+            color: #4cc9f0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .timer-display {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 60px;
+            font-weight: 700;
+            color: #ffffff;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 60px;
+            font-size: 18px;
+            color: #8b9bb4;
+            z-index: 1;
+        }
+
+        .footer-left { display: flex; gap: 20px; align-items: center; }
+        .footer-right { font-family: 'Rajdhani', sans-serif; letter-spacing: 1px; }
+
+        .instructor-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructor-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f72585;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        @keyframes grid-move {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="bg-grid"></div>
+        <div class="glow-orb"></div>
+
+        <div class="content-wrapper">
+            <h1>AI for Work II</h1>
+            <h2>ต่อยอดการทำงานด้วย AI — ไม่ใช่เริ่มใหม่</h2>
+
+            <div class="timer-box">
+                <span class="timer-label">Class Starts In</span>
+                <div class="timer-display" id="countdown">10:00</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-left">
+                <div class="instructor-badge">
+                    <div class="instructor-icon"><i class="fa-solid fa-user"></i></div>
+                    <span>Instructor Name</span>
+                </div>
+                <span>|</span>
+                <span>Feb 18, 2026</span>
+            </div>
+            <div class="footer-right">
+                LIVE INTERACTIVE CLASS
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple Countdown Timer
+        let time = 600; // 10 minutes in seconds
+        const timerDisplay = document.getElementById('countdown');
+
+        function updateTimer() {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (time > 0) {
+                time--;
+            } else {
+                timerDisplay.textContent = "00:00";
+                clearInterval(timerInterval);
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

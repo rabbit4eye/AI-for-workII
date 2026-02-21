@@ -1,0 +1,84 @@
+{
+  "project_info": {
+    "title": "AI for Work II - Title Card",
+    "created": 1771423721.171442,
+    "last_updated": 1771423824.9952059,
+    "total_slides": 6
+  },
+  "slides": [
+    {
+      "id": "slide_1_title_card",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_rules",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_principle_stack",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_real_world_stack",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_preview_skills",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "slide_6_transition_block2",
+      "state": "edited",
+      "pageNum": 6
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_title_card",
+      "title": "AI for Work II - Title Card",
+      "summary": "Main title slide with countdown timer",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_2_rules",
+      "title": "Course Rules",
+      "summary": "4 key rules for the class",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_3_principle_stack",
+      "title": "Principle: Stack, Don't Replace",
+      "summary": "Core principle explanation with layer animation",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_4_real_world_stack",
+      "title": "Real World Stack Examples",
+      "summary": "3 case studies of Stack vs Replace",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_5_preview_skills",
+      "title": "6 Skill Sets Preview",
+      "summary": "Overview of 6 skills to be learned",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    },
+    {
+      "id": "slide_6_transition_block2",
+      "title": "Transition to Block 2",
+      "summary": "Transition slide to the next block",
+      "image_plan": "Use a suitable image if needed",
+      "slide_template_key": ""
+    }
+  ]
+}
